@@ -226,6 +226,11 @@ MonoBehaviour:
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 8853018371715561765, guid: 67834b87706742747a6e6767e5062f9b, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -1878,6 +1883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 2792038}
+  projectile: {fileID: 6211304687944552736, guid: 67834b87706742747a6e6767e5062f9b, type: 3}
 --- !u!4 &1713564091
 Transform:
   m_ObjectHideFlags: 0
