@@ -707,11 +707,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 084fe581-1b44-4a87-ab0b-8436dadd1f85
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: GAMEJAM#2
+  organizationId: snaail-tsn
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

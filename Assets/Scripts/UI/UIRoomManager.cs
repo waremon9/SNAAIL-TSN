@@ -1,59 +1,51 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Netcode;
+using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UIRoomManager : MonoBehaviour
 {
-    private NetworkManager _networkManager;
     private TMPro.TMP_Text _roomName;
-    private HorizontalLayoutGroup _horizontalLayout;
+    
+    [SerializeField]
+    private VerticalLayoutGroup _verticalLayout;
 
     public GameObject roomPlayerPrefab;
-    private Dictionary<ulong,GameObject> _playerList;
+    private Dictionary<string,GameObject> _playerList = new();
     
     private void OnEnable()
     {
-        if (_networkManager == null)
-            return;
-        _networkManager.OnClientConnectedCallback += AddPlayerInRoom;
-        _networkManager.OnClientDisconnectCallback += RemovePlayerInRoom;
+        NetworkRoomManager.GetInstance().onLobbyCreated.AddListener(ChangeRoomName);
+        NetworkRoomManager.GetInstance().onConnectionToLobby.AddListener(AddPlayerInRoom);
+        NetworkRoomManager.GetInstance().onLeaveLobby.AddListener(RemovePlayerInRoom);
     }
     
     private void OnDisable()
     {
-        if (_networkManager == null)
-            return;
-        _networkManager.OnClientConnectedCallback -= AddPlayerInRoom;
-        _networkManager.OnClientDisconnectCallback -= RemovePlayerInRoom;
-    }
-    
-    private void Start()
-    {
-        _networkManager = NetworkManager.Singleton;
-        _horizontalLayout = GetComponentInChildren<HorizontalLayoutGroup>();
+        NetworkRoomManager.GetInstance().onLobbyCreated.RemoveListener(ChangeRoomName);
+        NetworkRoomManager.GetInstance().onConnectionToLobby.RemoveListener(AddPlayerInRoom);
+        NetworkRoomManager.GetInstance().onLeaveLobby.RemoveListener(RemovePlayerInRoom);
     }
 
-    void ChangeRoomName(string newName)
+    void ChangeRoomName(Lobby lobby)
     {
-        _roomName.text = newName;
+        _roomName.text =  "room :" + lobby.Name;
     }
 
-    void AddPlayerInRoom(ulong playerId)
+    void AddPlayerInRoom(string playerId)
     {
-        GameObject newPlayer = Instantiate(roomPlayerPrefab, _horizontalLayout.transform);
+        GameObject newPlayer = Instantiate(roomPlayerPrefab, _verticalLayout.transform);
         _playerList.Add(playerId, newPlayer);
-        newPlayer.GetComponentInChildren<TMPro.TMP_Text>().text = playerId.ToString();
+        newPlayer.GetComponentInChildren<TMPro.TMP_Text>().text = playerId;
     }
 
-    void RemovePlayerInRoom(ulong playerId)
+    void RemovePlayerInRoom(string lobbyId, string playerId)
     {
-        GameObject playerToRemove;
-        _playerList.TryGetValue(playerId, out playerToRemove);
+        GameObject playerToRemove = _playerList[playerId];
+        Debug.Log(playerToRemove);
         if (playerToRemove == null)
             return;
+        _playerList.Remove(playerId);
         Destroy(playerToRemove);
     }
 
