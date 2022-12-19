@@ -2,19 +2,10 @@ using Unity.Netcode;
 using UnityEngine;
 public class ProjectileNetwork : NetworkBehaviour {
     private const float MOVE_SPEED = 12;
-    public NetworkObject networkObject { get; private set; }
-
-    private void Awake() {
-        this.networkObject = this.GetComponent<NetworkObject>();
-    }
+    private bool _hitOnce;
 
     private void Update() {
-        if (this.IsServer == false) {
-            return;
-        }
-
         this.transform.position += this.transform.forward * (MOVE_SPEED * Time.deltaTime);
-        Debug.Log(networkObject.IsSpawned);
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -26,7 +17,22 @@ public class ProjectileNetwork : NetworkBehaviour {
             return;
         }
 
-        Debug.Log("HIT!");
-        this.networkObject.Despawn(false);
+        if (this._hitOnce) {
+            return;
+        }
+        this._hitOnce = true;
+
+        this.DespawnProjectileServerRpc();
+    }
+
+    [ServerRpc]
+    private void DespawnProjectileServerRpc() {
+        Debug.Log("HIT");
+        this.DespawnProjectileClientRpc();
+    }
+
+    [ClientRpc]
+    private void DespawnProjectileClientRpc() {
+        Destroy(this.gameObject);
     }
 }

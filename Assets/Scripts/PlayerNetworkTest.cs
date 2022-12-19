@@ -1,4 +1,3 @@
-using System;
 using Unity.Netcode;
 using UnityEngine;
 public class PlayerNetworkTest : NetworkBehaviour {
@@ -26,7 +25,7 @@ public class PlayerNetworkTest : NetworkBehaviour {
         if (this.IsOwner == false) {
             return;
         }
-        
+
         this.Move();
     }
 
@@ -56,14 +55,16 @@ public class PlayerNetworkTest : NetworkBehaviour {
 
     [ServerRpc]
     private void ShootProjectileServerRpc() {
+        Vector3 position = this.transform.position + Vector3.up + this.transform.forward * .3f; //replace by a spawn origin transform
+        Vector3 forward = this.transform.forward;
+        this.ShootProjectileClientRpc(position, forward);
+    }
+
+    [ClientRpc]
+    private void ShootProjectileClientRpc(Vector3 position, Vector3 forward) {
         ProjectileNetwork projectile = Instantiate(ResourceManager.Instance.projectile);
-        
-        Debug.Log(projectile.networkObject.IsSpawned);
-        projectile.networkObject.Spawn(true);
-        Debug.Log(projectile.networkObject.IsSpawned);
-        
-        projectile.transform.position = this.transform.position + Vector3.up;
-        projectile.transform.forward = this.transform.forward;
+        projectile.transform.position = position;
+        projectile.transform.forward = forward;
     }
 
     private Vector3 GetPointOnGround() {
