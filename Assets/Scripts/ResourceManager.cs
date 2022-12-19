@@ -7,6 +7,7 @@ using UnityEngine;
 [DefaultExecutionOrder(-1)]
 public class ResourceManager : MonoBehaviour {
     public static ResourceManager Instance;
+    public GameObject game;
 
     private void Awake() {
         if (Instance == false) {
