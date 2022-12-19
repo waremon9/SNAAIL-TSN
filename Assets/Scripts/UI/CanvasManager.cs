@@ -9,7 +9,8 @@ public enum CanvasType
     InGameMenu,
     Settings,
     CreateRoom,
-    JoinRoom
+    JoinRoom,
+    Room
 }
 
 public class CanvasManager : Singleton<CanvasManager>

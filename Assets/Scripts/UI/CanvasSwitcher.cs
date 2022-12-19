@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum ButtonType
 {
-    StartGame,
+    ChangeScene,
     UINavigation,
     CreateRoom,
     JoinRoom,
@@ -17,9 +18,9 @@ public enum ButtonType
 public class CanvasSwitcher : MonoBehaviour
 {
     public ButtonType buttonType;
-    
     public CanvasType desiredCanvasType;
-
+    public string desiredSceneName;
+    
     private CanvasManager _canvasManager;
     private Button _menuButton;
     
@@ -30,7 +31,7 @@ public class CanvasSwitcher : MonoBehaviour
         _menuButton.onClick.AddListener(OnButtonClicked);
         _canvasManager = CanvasManager.GetInstance();
     }
-
+    
     void OnButtonClicked()
     {
         switch (buttonType)
@@ -38,9 +39,9 @@ public class CanvasSwitcher : MonoBehaviour
             case ButtonType.UINavigation:
                 _canvasManager.SwitchCanvas(desiredCanvasType);
                 break;
-            case ButtonType.StartGame:
-                //Call Scene manager to load the game scene
-                Debug.Log("LunchGame");
+            case ButtonType.ChangeScene:
+                SceneManager.LoadScene(SceneManager.GetSceneByName(desiredSceneName).buildIndex);
+                Debug.Log("Change Scene to " + desiredSceneName);
                 break;
             case ButtonType.CreateRoom:
                 //Call network manager logic to create a room
