@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: be07bf5759644da44a539aa3eb45dfa9
+=======
+guid: 0d858863079948842b7bf85348520b73
+>>>>>>> origin/NetCode
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
