@@ -79,9 +79,9 @@ public class SpawnManager : MonoBehaviour
                 if (_roundTimer < 0)
                 {
                     
-                    if (_i <= rounds.Count)
+                    if (_i <= rounds.Count-1)
                     {
-                        if (_i<rounds.Count)
+                        if (_i<rounds.Count-1)
                         {
                             _i++;
                         }
@@ -99,7 +99,7 @@ public class SpawnManager : MonoBehaviour
 
         GameObject nextEnemy = rounds[_i].enemies[Random.Range(0, rounds[_i].enemies.Count)];
 
-        Instantiate(nextEnemy, rounds[_i].spawner[Random.Range(0, rounds[_i].enemies.Count)].transform.position, Quaternion.identity);
+        Instantiate(nextEnemy, rounds[_i].spawner[Random.Range(0, rounds[_i].spawner.Count)].transform.position, Quaternion.identity);
 
 
 
