@@ -11,6 +11,8 @@ public class UIJoinRoom : MonoBehaviour
     private TMP_InputField _joinCode;
     [SerializeField]
     private Button _connectToServerButton;
+    [SerializeField]
+    private Button _quickJoinButton;
 
     [SerializeField]
     private ScrollRect _scrollRect;
@@ -23,6 +25,7 @@ public class UIJoinRoom : MonoBehaviour
     private void OnEnable()
     {
         _connectToServerButton.onClick.AddListener(ConnectToServer);
+        _quickJoinButton.onClick.AddListener(QuickJoin);
         HostingManager.GetInstance().onServerJoined.AddListener(FetchLobbies);
         NetworkLobbyManager.GetInstance().onLobbyJoined.AddListener(OnLobbyJoined);
     }
@@ -30,6 +33,7 @@ public class UIJoinRoom : MonoBehaviour
     private void OnDisable()
     {
         _connectToServerButton.onClick.RemoveListener(ConnectToServer);
+        _quickJoinButton.onClick.RemoveListener(QuickJoin);
         HostingManager.GetInstance().onServerJoined.RemoveListener(FetchLobbies);
         NetworkLobbyManager.GetInstance().onLobbyJoined.RemoveListener(OnLobbyJoined);
     }
@@ -41,6 +45,8 @@ public class UIJoinRoom : MonoBehaviour
             _errorMessage.text = "Please specify a code.";
             return;
         }
+        
+        
         HostingManager.GetInstance()
             .StartCoroutine(nameof(HostingManager.ConfigureTransportAndStartNgoAsConnectingPlayer), _joinCode.text);
         HostingManager.GetInstance().onServerJoined?.Invoke();
@@ -67,9 +73,14 @@ public class UIJoinRoom : MonoBehaviour
         
     }
 
-    void OnLobbyJoined(string playerId)
+    void QuickJoin()
     {
-        CanvasManager.GetInstance().SwitchCanvas(CanvasType.Room);   
+        NetworkLobbyManager.GetInstance().QuickJoinLobby();
+    }
+    
+    void OnLobbyJoined(Lobby lobby)
+    {
+        //CanvasManager.GetInstance().SwitchCanvas(CanvasType.Room);   
     }
     
 }

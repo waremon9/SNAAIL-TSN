@@ -1,9 +1,11 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Unity.Networking.Transport.Relay;
+using Unity.Services.Lobbies;
 
 public class UIRoomManager : Singleton<UIRoomManager>
 {
@@ -19,26 +21,28 @@ public class UIRoomManager : Singleton<UIRoomManager>
     private TMP_Text _lobbyCodeText;
 
     [SerializeField]
+    private Button _refreshButton;
+    
+    [SerializeField]
     private VerticalLayoutGroup _verticalLayout;
-
-    private Dictionary<string,GameObject> _playerList = new();
-
+    
     private string _lobbyId;
     
     private void OnEnable()
     {
+        _refreshButton.onClick.AddListener(OnRefresh);
         HostingManager.GetInstance().onServerCreated.AddListener(ChangeServerJoinCodeInfo);
         NetworkLobbyManager.GetInstance().onLobbyCreated.AddListener(ChangeServerNameAndId);
-        NetworkLobbyManager.GetInstance().onLobbyJoined.AddListener(AddPlayerInRoom);
-        NetworkLobbyManager.GetInstance().onLobbyLeft.AddListener(RemovePlayerInRoom);
+        NetworkLobbyManager.GetInstance().onLobbyJoined.AddListener(RefreshPlayerInLobby);
+        NetworkLobbyManager.GetInstance().onRefreshLobby.AddListener(RefreshPlayerInLobby);
     }
     
     private void OnDisable()
     {
+        _refreshButton.onClick.RemoveListener(OnRefresh);
         HostingManager.GetInstance().onServerCreated.RemoveListener(ChangeServerJoinCodeInfo);
         NetworkLobbyManager.GetInstance().onLobbyCreated.RemoveListener(ChangeServerNameAndId);
-        NetworkLobbyManager.GetInstance().onLobbyJoined.RemoveListener(AddPlayerInRoom);
-        NetworkLobbyManager.GetInstance().onLobbyLeft.RemoveListener(RemovePlayerInRoom);
+        NetworkLobbyManager.GetInstance().onLobbyJoined.RemoveListener(RefreshPlayerInLobby);
     }
 
     void ChangeServerJoinCodeInfo()
@@ -52,23 +56,43 @@ public class UIRoomManager : Singleton<UIRoomManager>
         _roomName.text =  $"room : {lobby.Name}";
         _lobbyCodeText.text = $"Room Code : {lobby.LobbyCode}";
     }
-
-    void AddPlayerInRoom(string playerId)
+    
+    private void RefreshPlayerInLobby(Lobby lobby)
     {
-        if (_playerList.ContainsKey(playerId))
-            return;
+        RemovePlayerInLobby();
+
+        var players = lobby.Players;
+        
+        players.ForEach(x => SetupNewPlayerLobby(x.Id));
+    }
+
+    void SetupNewPlayerLobby(string playerId)
+    {
+        Debug.Log($"Creating player : {playerId}");
         GameObject newPlayer = Instantiate(roomPlayerPrefab, _verticalLayout.transform);
-        _playerList.Add(playerId, newPlayer);
         newPlayer.GetComponentInChildren<TMP_Text>().text = playerId;
     }
-
-    void RemovePlayerInRoom(string lobbyId, string playerId)
+    
+    void RemovePlayerInLobby()
     {
-        GameObject playerToRemove = _playerList[playerId];
-        _playerList.Remove(playerId);
-        Destroy(playerToRemove);
+        foreach (var componentsInChild in _verticalLayout.GetComponentsInChildren<UIRoomPlayer>())
+        {
+            componentsInChild.RemoveSelf();
+        }
     }
 
+    void OnRefresh()
+    {
+
+        Lobby lobby = NetworkLobbyManager.GetInstance().currentLobby;
+        
+        lobby.Players.ForEach(x => Debug.Log(x.Id));
+        
+        NetworkLobbyManager.GetInstance().onRefreshLobby?.Invoke(lobby);
+        NetworkLobbyManager.GetInstance().UpdateCurrentLobby(lobby);
+
+    }
+    
     public string GetLobbyId()
     {
         Debug.Log(_lobbyId);

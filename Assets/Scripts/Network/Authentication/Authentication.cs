@@ -23,7 +23,6 @@ public class Authentication : MonoBehaviour
             Debug.Log("Sign in anonymously succeeded!");
             // Shows how to get the playerID
             Debug.Log($"PlayerID: {AuthenticationService.Instance.PlayerId}");
-
         }
         catch (AuthenticationException ex)
         {

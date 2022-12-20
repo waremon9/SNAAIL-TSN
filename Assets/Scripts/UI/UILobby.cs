@@ -57,7 +57,7 @@ public class UILobby : MonoBehaviour
 
     public void SetAvailableSlot(int availableSlot, int maxPlayers)
     {
-        _availableSlots.text = $"{availableSlot} / {maxPlayers}";
+        _availableSlots.text = $"{maxPlayers - availableSlot} / {maxPlayers}";
     }
 
     public void SetLobbyCode(string lobbyCode)
@@ -73,9 +73,10 @@ public class UILobby : MonoBehaviour
     
     void ConnectToLobby()
     {
-        if(_isPrivate)
+        Debug.Log("Bloop");
+        /*if(_isPrivate)
             NetworkLobbyManager.GetInstance().JoinLobbyWithCode(_lobbyCode);
-        else
-            NetworkLobbyManager.GetInstance().JoinLobbyWithId(_lobbyId);
+        else*/
+        NetworkLobbyManager.GetInstance().JoinLobbyWithId(_lobbyId);
     }
 }
