@@ -15,7 +15,7 @@ public class HostingManager : Singleton<HostingManager>
     public string JoinCode { get; private set; }
 
     public UnityEvent onServerCreated;
-    
+    public UnityEvent onServerJoined;
     public async Task<RelayServerData> AllocateRelayServerAndGetJoinCode(int maxConnections, string region = null)
     {
         Allocation allocation;
@@ -47,8 +47,9 @@ public class HostingManager : Singleton<HostingManager>
         return new RelayServerData(allocation, "dtls");
     }
     
-    public async Task<RelayServerData> JoinRelayServerFromJoinCode(string joinCode)
+    public static async Task<RelayServerData> JoinRelayServerFromJoinCode(string joinCode)
     {
+        Debug.Log("Preparing to join server with code : " + joinCode);
         JoinAllocation allocation;
         try
         {
@@ -69,7 +70,7 @@ public class HostingManager : Singleton<HostingManager>
     
     public IEnumerator ConfigureTransportAndStartNgoAsHost(int maxPlayer)
     {
-        var serverRelayUtilityTask = AllocateRelayServerAndGetJoinCode(4);
+        var serverRelayUtilityTask = AllocateRelayServerAndGetJoinCode(maxPlayer);
         while (!serverRelayUtilityTask.IsCompleted)
         {
             yield return null;
@@ -77,13 +78,12 @@ public class HostingManager : Singleton<HostingManager>
         if (serverRelayUtilityTask.IsFaulted)
         {
             Debug.LogError("Exception thrown when attempting to start Relay Server. Server not started. Exception: " + serverRelayUtilityTask.Exception?.Message);
-            yield break;
+            yield break; 
         }
 
         var relayServerData = serverRelayUtilityTask.Result;
-
         // Display the joinCode to the user.
-
+        
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
         NetworkManager.Singleton.StartHost();
         yield return null;
@@ -98,7 +98,6 @@ public class HostingManager : Singleton<HostingManager>
         {
             yield return null;
         }
-
         if (clientRelayUtilityTask.IsFaulted)
         {
             Debug.LogError("Exception thrown when attempting to connect to Relay Server. Exception: " + clientRelayUtilityTask.Exception.Message);

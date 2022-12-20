@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.Networking.Transport.Relay;
 
-public class UIRoomManager : MonoBehaviour
+public class UIRoomManager : Singleton<UIRoomManager>
 {
     public GameObject roomPlayerPrefab;
     
@@ -16,47 +16,62 @@ public class UIRoomManager : MonoBehaviour
     private TMP_Text _joinCode;
     
     [SerializeField]
-    private TMP_Text _roomId;
+    private TMP_Text _lobbyCodeText;
 
     [SerializeField]
     private VerticalLayoutGroup _verticalLayout;
 
     private Dictionary<string,GameObject> _playerList = new();
+
+    private string _lobbyId;
     
     private void OnEnable()
     {
-        HostingManager.GetInstance().onServerCreated.AddListener(ChangeRoomInfo);
+        HostingManager.GetInstance().onServerCreated.AddListener(ChangeServerJoinCodeInfo);
+        NetworkLobbyManager.GetInstance().onLobbyCreated.AddListener(ChangeServerNameAndId);
+        NetworkLobbyManager.GetInstance().onLobbyJoined.AddListener(AddPlayerInRoom);
+        NetworkLobbyManager.GetInstance().onLobbyLeft.AddListener(RemovePlayerInRoom);
     }
     
     private void OnDisable()
     {
-        HostingManager.GetInstance().onServerCreated.RemoveListener(ChangeRoomInfo);
+        HostingManager.GetInstance().onServerCreated.RemoveListener(ChangeServerJoinCodeInfo);
+        NetworkLobbyManager.GetInstance().onLobbyCreated.RemoveListener(ChangeServerNameAndId);
+        NetworkLobbyManager.GetInstance().onLobbyJoined.RemoveListener(AddPlayerInRoom);
+        NetworkLobbyManager.GetInstance().onLobbyLeft.RemoveListener(RemovePlayerInRoom);
     }
 
-    void ChangeRoomInfo()
+    void ChangeServerJoinCodeInfo()
     {
-        //_roomName.text =  $"room : {lobby.Name}";
-        //_roomId.text = $"Room ID : {lobby.Id}";
         _joinCode.text = $"Server Join Code : {HostingManager.GetInstance().JoinCode}";
     }
-    
-    
+
+    void ChangeServerNameAndId(Lobby lobby)
+    {
+        _lobbyId = lobby.Id;
+        _roomName.text =  $"room : {lobby.Name}";
+        _lobbyCodeText.text = $"Room Code : {lobby.LobbyCode}";
+    }
 
     void AddPlayerInRoom(string playerId)
     {
+        if (_playerList.ContainsKey(playerId))
+            return;
         GameObject newPlayer = Instantiate(roomPlayerPrefab, _verticalLayout.transform);
         _playerList.Add(playerId, newPlayer);
-        newPlayer.GetComponentInChildren<TMPro.TMP_Text>().text = playerId;
+        newPlayer.GetComponentInChildren<TMP_Text>().text = playerId;
     }
 
     void RemovePlayerInRoom(string lobbyId, string playerId)
     {
         GameObject playerToRemove = _playerList[playerId];
-        Debug.Log(playerToRemove);
-        if (playerToRemove == null)
-            return;
         _playerList.Remove(playerId);
         Destroy(playerToRemove);
     }
 
+    public string GetLobbyId()
+    {
+        Debug.Log(_lobbyId);
+        return _lobbyId;
+    }
 }

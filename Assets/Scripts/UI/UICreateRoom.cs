@@ -19,6 +19,8 @@ public class UICreateRoom : MonoBehaviour
     [SerializeField]
     private TMP_Text _errorMessage;
 
+    [SerializeField] 
+    private Toggle pricavyToogle;
     private void OnEnable()
     {
         _createRoomButton.onClick.AddListener(CreateNewServerAndRoom);
@@ -37,8 +39,10 @@ public class UICreateRoom : MonoBehaviour
             _errorMessage.text = "Please specify a room name.";
             return;
         }
-
-        HostingManager.GetInstance().StartCoroutine(nameof(HostingManager.ConfigureTransportAndStartNgoAsHost), 4);
+        
+        
+        HostingManager.GetInstance().StartCoroutine(nameof(HostingManager.ConfigureTransportAndStartNgoAsHost), _maxPlayer);
+        NetworkLobbyManager.GetInstance().CreateLobby(_lobbyName.text, pricavyToogle.isOn);
         CanvasManager.GetInstance().SwitchCanvas(CanvasType.Room);
     }
 }

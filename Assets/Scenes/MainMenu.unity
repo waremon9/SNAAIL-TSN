@@ -803,7 +803,7 @@ MonoBehaviour:
   roomPlayerPrefab: {fileID: 298514417062829784, guid: 85d2070eec4cb3d49b9d63b93e19319e, type: 3}
   _roomName: {fileID: 2030418321}
   _joinCode: {fileID: 1997889560}
-  _roomId: {fileID: 636023711}
+  _lobbyCodeText: {fileID: 636023711}
   _verticalLayout: {fileID: 651832777}
 --- !u!1001 &201221634
 PrefabInstance:
@@ -965,6 +965,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3eb687cb8abe4c4db41f27405bc1419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onLobbyCreated:
+    m_PersistentCalls:
+      m_Calls: []
+  onLobbyJoined:
+    m_PersistentCalls:
+      m_Calls: []
+  onLobbyLeft:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &205363932
 Transform:
   m_ObjectHideFlags: 0
@@ -1211,7 +1220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115697584615925412, guid: a41a9606177ee9c4db7a8232796aa313, type: 3}
       propertyPath: m_Name
-      value: RoomId_Text
+      value: LobbyCode_Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a41a9606177ee9c4db7a8232796aa313, type: 3}
@@ -3119,6 +3128,9 @@ MonoBehaviour:
   onServerCreated:
     m_PersistentCalls:
       m_Calls: []
+  onServerJoined:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &816134140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3922,7 +3934,8 @@ MonoBehaviour:
   _privacyToggle: {fileID: 925318298}
   _createRoomButton: {fileID: 1657144283}
   _maxPlayer: 4
-  _errorMessage: {fileID: 0}
+  _errorMessage: {fileID: 1825898326}
+  pricavyToogle: {fileID: 925318298}
 --- !u!1 &1165107102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,7 +4363,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00009577761}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 700}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1427773660
@@ -5267,9 +5280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 1427773659}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -6177,7 +6190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _joinCode: {fileID: 913017262}
   _connectToServerButton: {fileID: 1696692405}
+  _scrollRect: {fileID: 1695809540}
   _errorMessage: {fileID: 246107043}
+  UILobby: {fileID: 4641264220882721882, guid: bc57b5bbb3cd5f340b08922ec1f7aaa1, type: 3}
 --- !u!1001 &2100491288
 PrefabInstance:
   m_ObjectHideFlags: 0
