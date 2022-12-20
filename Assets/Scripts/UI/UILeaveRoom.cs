@@ -24,7 +24,6 @@ public class UILeaveRoom : MonoBehaviour
 
     void RemovePlayerFromLobby()
     {
-        NetworkRoomManager.GetInstance().LeaveLobby();
         CanvasManager.GetInstance().SwitchCanvas(CanvasType.MainMenu);
     }
     

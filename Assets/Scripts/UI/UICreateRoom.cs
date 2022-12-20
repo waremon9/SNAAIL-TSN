@@ -16,31 +16,29 @@ public class UICreateRoom : MonoBehaviour
     private Button _createRoomButton;
     [SerializeField]
     private int _maxPlayer = 4;
-    
-    private NetworkRoomManager _lobbyManager;
+    [SerializeField]
+    private TMP_Text _errorMessage;
 
     private void OnEnable()
     {
-        _createRoomButton.onClick.AddListener(OnButtonClicked);
+        _createRoomButton.onClick.AddListener(CreateNewServerAndRoom);
     }
 
     private void OnDisable()
     {
-        _createRoomButton.onClick.RemoveListener(OnButtonClicked);
+        _createRoomButton.onClick.RemoveListener(CreateNewServerAndRoom);
     }
+    
 
-    private void Awake()
-    {
-        _lobbyManager = NetworkRoomManager.GetInstance();
-        
-    }
+    void CreateNewServerAndRoom()
+    {        
+        if (_lobbyName.text == null)
+        {
+            _errorMessage.text = "Please specify a room name.";
+            return;
+        }
 
-    void OnButtonClicked()
-    {
-        _lobbyName.text ??= Random.Range(1, int.MaxValue).ToString();
-        
-        _lobbyManager.CreateNewLobby(_lobbyName.text, _maxPlayer, _privacyToggle.isOn);
-
+        HostingManager.GetInstance().StartCoroutine(nameof(HostingManager.ConfigureTransportAndStartNgoAsHost), 4);
         CanvasManager.GetInstance().SwitchCanvas(CanvasType.Room);
     }
 }

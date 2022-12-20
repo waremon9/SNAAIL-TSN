@@ -2,35 +2,45 @@ using System.Collections.Generic;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Unity.Networking.Transport.Relay;
 
 public class UIRoomManager : MonoBehaviour
 {
-    private TMPro.TMP_Text _roomName;
+    public GameObject roomPlayerPrefab;
     
+    [SerializeField]
+    private TMP_Text _roomName;
+    
+    [SerializeField]
+    private TMP_Text _joinCode;
+    
+    [SerializeField]
+    private TMP_Text _roomId;
+
     [SerializeField]
     private VerticalLayoutGroup _verticalLayout;
 
-    public GameObject roomPlayerPrefab;
     private Dictionary<string,GameObject> _playerList = new();
     
     private void OnEnable()
     {
-        NetworkRoomManager.GetInstance().onLobbyCreated.AddListener(ChangeRoomName);
-        NetworkRoomManager.GetInstance().onConnectionToLobby.AddListener(AddPlayerInRoom);
-        NetworkRoomManager.GetInstance().onLeaveLobby.AddListener(RemovePlayerInRoom);
+        HostingManager.GetInstance().onServerCreated.AddListener(ChangeRoomInfo);
     }
     
     private void OnDisable()
     {
-        NetworkRoomManager.GetInstance().onLobbyCreated.RemoveListener(ChangeRoomName);
-        NetworkRoomManager.GetInstance().onConnectionToLobby.RemoveListener(AddPlayerInRoom);
-        NetworkRoomManager.GetInstance().onLeaveLobby.RemoveListener(RemovePlayerInRoom);
+        HostingManager.GetInstance().onServerCreated.RemoveListener(ChangeRoomInfo);
     }
 
-    void ChangeRoomName(Lobby lobby)
+    void ChangeRoomInfo()
     {
-        _roomName.text =  "room :" + lobby.Name;
+        //_roomName.text =  $"room : {lobby.Name}";
+        //_roomId.text = $"Room ID : {lobby.Id}";
+        _joinCode.text = $"Server Join Code : {HostingManager.GetInstance().JoinCode}";
     }
+    
+    
 
     void AddPlayerInRoom(string playerId)
     {
