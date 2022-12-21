@@ -1,16 +1,5 @@
 using UnityEngine;
-
-public enum SpellType
-{
-    Continuous,
-    Point
-}
-public enum SpellOrigin
-{
-    Player,
-    World
-}
-
+using Enums;
 [CreateAssetMenu(menuName = "Spell")]
 public class Spell : ScriptableObject
 {

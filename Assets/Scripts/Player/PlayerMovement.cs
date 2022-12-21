@@ -1,22 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using Enums;
 
-public enum Movement
-{
-    Free,
-    MoveOnly,
-    RotateOnly,
-    Blocked
-}
-
+[RequireComponent(typeof(Player))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float _moveSpeed = 2;
     [SerializeField]
     private float _rotationSpeed = 2;
-    [SerializeField]
-    private GameObject _attackVFX = null;
+
+    private Plane _raycastPlane;
 
     private Animator _animator;
     public Animator PlayerAnimator
@@ -32,31 +26,18 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _raycastPlane = new Plane(Vector3.up, Vector3.zero);
     }
 
     // Update is called once per frame
     void Update()
     {
+        isMoving = false;
         Rotate();
         Move();
         Roll();
 
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            _movement = Movement.Blocked;
-            _animator.SetTrigger("Died");
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            _animator.SetTrigger("Revived");
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _movement = Movement.Blocked;
-            _animator.SetTrigger("Hit");
-        }
+        _animator.SetBool("Running", isMoving);
     }
 
     private void Move()
@@ -65,12 +46,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Z))
             {
-                _animator.SetBool("Running", isMoving);
+                isMoving = true;
                 transform.position += transform.forward * _moveSpeed * Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                _animator.SetBool("Running", isMoving);
+                isMoving = true;
                 transform.position -= transform.forward * _moveSpeed * Time.deltaTime;
             }
         }
@@ -80,25 +61,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_movement == Movement.Free || _movement == Movement.RotateOnly)
         {
-            if (_animator.GetBool("Casting"))
-            {
-                RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float hit;
 
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+            if (_raycastPlane.Raycast(ray, out hit))
+            {
+                if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(ray.GetPoint(hit).x, ray.GetPoint(hit).z)) > 0.1f)
                 {
-                    transform.LookAt(hit.point);
+                    transform.LookAt(ray.GetPoint(hit));
                 }
-            }
-
-            if (Input.GetKey(KeyCode.Q))
-            {
-                isMoving = true;
-                transform.Rotate(transform.up, -Time.deltaTime * _rotationSpeed);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                isMoving = true;
-                transform.Rotate(transform.up, Time.deltaTime * _rotationSpeed);
             }
         }
     }
@@ -122,17 +93,6 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         _movement = Movement.Free;
-    }
-
-    private void ToggleAttackVFX()
-    {
-        if (_attackVFX.activeSelf)
-        {
-            _attackVFX.SetActive(false);
-        } else
-        {
-            _attackVFX.SetActive(true);
-        }
     }
 
     public void SetMovement(Movement movement)
