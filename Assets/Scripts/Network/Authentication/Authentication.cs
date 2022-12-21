@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ParrelSync;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using UnityEngine;
@@ -20,10 +19,7 @@ public class Authentication : Singleton<Authentication>
         {
             
             var options = new InitializationOptions();
-        
-            #if UNITY_EDITOR
-                        options.SetProfile(ClonesManager.IsClone() ? ClonesManager.GetArgument() : "Primary");
-            #endif
+            
             
             if (AuthenticationService.Instance.IsSignedIn)
                 return;

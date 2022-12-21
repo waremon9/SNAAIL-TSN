@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ParrelSync;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
@@ -13,6 +12,7 @@ using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuickMatchmaking : MonoBehaviour
@@ -52,11 +52,6 @@ public class QuickMatchmaking : MonoBehaviour
     private async Task Authenticate()
     {
         var options = new InitializationOptions();
-        
-        #if UNITY_EDITOR
-        options.SetProfile(ClonesManager.IsClone() ? ClonesManager.GetArgument() : "Primary");
-        #endif
-
         await UnityServices.InitializeAsync(options);
 
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
@@ -75,6 +70,7 @@ public class QuickMatchmaking : MonoBehaviour
             SetTransportAsClient(allocation);
             
             NetworkManager.Singleton.StartClient();
+            CanvasManager.GetInstance().gameObject.SetActive(false);
             return lobby;
 
         }
@@ -109,6 +105,10 @@ public class QuickMatchmaking : MonoBehaviour
             _transport.SetHostRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData);
 
             NetworkManager.Singleton.StartHost();
+            
+            NetworkManager.Singleton.SceneManager.LoadScene("Building_Life", LoadSceneMode.Additive);
+            CanvasManager.GetInstance().gameObject.SetActive(false);
+            
             return lobby;
 
         }
