@@ -16,6 +16,7 @@ public class HostingManager : Singleton<HostingManager>
 
     public UnityEvent onServerCreated;
     public UnityEvent onServerJoined;
+    
     public async Task<RelayServerData> AllocateRelayServerAndGetJoinCode(int maxConnections, string region = null)
     {
         Allocation allocation;
@@ -83,7 +84,6 @@ public class HostingManager : Singleton<HostingManager>
 
         var relayServerData = serverRelayUtilityTask.Result;
         // Display the joinCode to the user.
-        
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
         NetworkManager.Singleton.StartHost();
         yield return null;
@@ -107,7 +107,6 @@ public class HostingManager : Singleton<HostingManager>
         var relayServerData = clientRelayUtilityTask.Result;
 
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
-
         NetworkManager.Singleton.StartClient();
         yield return null;
     }

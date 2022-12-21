@@ -80,3 +80,5 @@ crashlytics-build.properties
 
 .idea/*
 >>>>>>> origin/NetCode
+Packages/manifest.json
+Packages/packages-lock.json
