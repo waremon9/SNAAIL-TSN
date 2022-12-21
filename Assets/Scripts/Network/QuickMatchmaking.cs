@@ -68,8 +68,8 @@ public class QuickMatchmaking : MonoBehaviour
             var allocation = await RelayService.Instance.JoinAllocationAsync(lobby.Data[JoinCodeKey].Value);
 
             SetTransportAsClient(allocation);
-            
             NetworkManager.Singleton.StartClient();
+            NetworkManager.Singleton.SceneManager.LoadScene("GamePlayScene", LoadSceneMode.Additive);
             CanvasManager.GetInstance().gameObject.SetActive(false);
             return lobby;
 
@@ -103,10 +103,9 @@ public class QuickMatchmaking : MonoBehaviour
             StartCoroutine(HeartbeatLobbyCoroutine(lobby.Id,15));
 
             _transport.SetHostRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData);
-
-            NetworkManager.Singleton.StartHost();
             
-            NetworkManager.Singleton.SceneManager.LoadScene("Building_Life", LoadSceneMode.Additive);
+            NetworkManager.Singleton.StartHost();
+            NetworkManager.Singleton.SceneManager.LoadScene("GamePlayScene", LoadSceneMode.Additive);
             CanvasManager.GetInstance().gameObject.SetActive(false);
             
             return lobby;
