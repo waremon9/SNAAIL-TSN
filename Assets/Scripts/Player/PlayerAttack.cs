@@ -15,6 +15,10 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     private Spell _spell = null;
+    public Spell Spell
+    {
+        get { return _spell; }
+    }
     private GameObject _spellObj = null;
 
     private void Awake()
@@ -52,7 +56,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        if(_attackType == AttackType.Spell)
+        if (_attackType == AttackType.Spell)
         {
             if (_player.PlayerAnimator.GetBool("Casting"))
             {
@@ -64,7 +68,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 CastSpell();
             }
-        } else
+        }
+        else
         {
             _weaponCollider.enabled = true;
             _player.PlayerAnimator.SetTrigger("MeleeAttack");
@@ -76,16 +81,19 @@ public class PlayerAttack : MonoBehaviour
     {
         if (_spell)
         {
-            if (_spell.spellPrefab)
+            if (_spell.SpellPrefab)
             {
-                if (_spell.spellOrigin == SpellOrigin.World)
+                Debug.Log("SpawnSpell");
+                if (_spell.SpellOrigin == SpellOrigin.World)
                 {
-                    _spellObj = Instantiate(_spell.spellPrefab, Vector3.zero, Quaternion.identity);
+                    _spellObj = Instantiate(_spell.SpellPrefab, Vector3.zero, Quaternion.identity);
+                    _spellObj.GetComponentInChildren<Weapon>().Owner = this;
                 }
                 else
                 {
-                    _spellObj = Instantiate(_spell.spellPrefab, transform);
+                    _spellObj = Instantiate(_spell.SpellPrefab, transform);
                 }
+
                 _spellObj.SetActive(false);
             }
         }
@@ -95,7 +103,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!_spellObj) return;
 
-        switch (_spell.spellType)
+        switch (_spell.SpellType)
         {
             case SpellType.Continuous:
                 CastContinuousSpell();
@@ -110,12 +118,12 @@ public class PlayerAttack : MonoBehaviour
 
     public void CastPointSpell()
     {
+
         RaycastHit hit;
-        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
         {
             _spellObj.transform.position = hit.point + Vector3.up * 5;
             _player.PlayerAnimator.SetTrigger("RangeAttack");
-            _player.PlayerAnimator.SetTrigger("Cast");
         }
     }
 
@@ -127,7 +135,17 @@ public class PlayerAttack : MonoBehaviour
 
     private void ToggleSpellVisibility()
     {
-        _spellObj.SetActive(!_spellObj.activeSelf);
+        if (_spellObj.activeSelf)
+        {
+            var particleCollision = _spellObj.transform.GetChild(0).GetComponent<ParticleSystem>().collision;
+            particleCollision.sendCollisionMessages = true;
+            _spellObj.SetActive(false);
+
+        }
+        else
+        {
+            _spellObj.SetActive(true);
+        }
     }
 
     private void ToggleWeaponCollider()

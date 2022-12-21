@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e77a92023eb384bafd4178f140884e, type: 3}
   m_Name: FireBeam
   m_EditorClassIdentifier: 
-  spellPrefab: {fileID: 100018, guid: 202b33b5d35ea7e4dbcee51026126187, type: 3}
-  spellType: 0
+  SpellPrefab: {fileID: 100018, guid: 202b33b5d35ea7e4dbcee51026126187, type: 3}
+  SpellType: 0
+  SpellOrigin: 0
+  Damage: 5

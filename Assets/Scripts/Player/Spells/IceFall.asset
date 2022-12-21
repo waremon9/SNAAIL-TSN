@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e77a92023eb384bafd4178f140884e, type: 3}
   m_Name: IceFall
   m_EditorClassIdentifier: 
-  spellPrefab: {fileID: 100004, guid: d360dff7b53ebdb4ea755ac0639b394d, type: 3}
-  spellType: 1
-  spellOrigin: 1
+  SpellPrefab: {fileID: 100004, guid: d360dff7b53ebdb4ea755ac0639b394d, type: 3}
+  SpellType: 1
+  SpellOrigin: 1
+  Damage: 50

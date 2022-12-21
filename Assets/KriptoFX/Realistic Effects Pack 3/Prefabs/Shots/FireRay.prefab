@@ -23426,7 +23426,6 @@ GameObject:
   m_Component:
   - component: {fileID: 400018}
   - component: {fileID: 11400006}
-  - component: {fileID: -8595054759751551951}
   m_Layer: 0
   m_Name: FireRay
   m_TagString: Weapon
@@ -23480,19 +23479,6 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &-8595054759751551951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4882f969d123f054c8d48a70baf25ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 5
 --- !u!1 &100020
 GameObject:
   m_ObjectHideFlags: 0
@@ -23549,6 +23535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400022}
   - component: {fileID: 11400004}
+  - component: {fileID: 6938286373294457191}
   m_Layer: 0
   m_Name: Ray
   m_TagString: Untagged
@@ -23593,6 +23580,19 @@ MonoBehaviour:
   IsCenterLightPosition: 0
   LineRenderers:
   - {fileID: 12000000}
+--- !u!114 &6938286373294457191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4882f969d123f054c8d48a70baf25ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 5
 --- !u!1 &100024
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,10 +23,12 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool withHit = true)
     {
         _currentHealth -= damage;
-        Hit();
+
+        if(withHit) Hit();
+
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;

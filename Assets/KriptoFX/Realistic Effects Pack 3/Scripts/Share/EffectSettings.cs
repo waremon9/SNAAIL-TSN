@@ -109,7 +109,6 @@ public class EffectSettings : MonoBehaviour
 
     public void OnCollisionHandler(CollisionInfo e)
     {
-        Debug.Log("OnCollisionHandler");
         for (int i = 0; i < lastActiveIndex; i++)
         {
             Invoke("SetGoActive", active_value[i]);

@@ -9826,7 +9826,6 @@ GameObject:
   m_Component:
   - component: {fileID: 400004}
   - component: {fileID: 11400004}
-  - component: {fileID: -5384257884775427893}
   m_Layer: 0
   m_Name: IceArrows
   m_TagString: Untagged
@@ -9879,19 +9878,6 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &-5384257884775427893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4882f969d123f054c8d48a70baf25ab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 5
 --- !u!1 &100006
 GameObject:
   m_ObjectHideFlags: 0
@@ -9903,6 +9889,7 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 19800004}
   - component: {fileID: 19900004}
+  - component: {fileID: 3872306058058151238}
   m_Layer: 0
   m_Name: Icicles
   m_TagString: Weapon
@@ -14907,6 +14894,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3872306058058151238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4882f969d123f054c8d48a70baf25ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 50
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0
