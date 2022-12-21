@@ -5,6 +5,7 @@ using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.Netcode;
 using Unity.Services.Lobbies;
 
 public class UIRoomManager : Singleton<UIRoomManager>
@@ -30,16 +31,17 @@ public class UIRoomManager : Singleton<UIRoomManager>
     
     private void OnEnable()
     {
-        _refreshButton.onClick.AddListener(OnRefresh);
+        _refreshButton.onClick.AddListener(NetworkLobbyManager.GetInstance().UpdateCurrentLobby);
         HostingManager.GetInstance().onServerCreated.AddListener(ChangeServerJoinCodeInfo);
         NetworkLobbyManager.GetInstance().onLobbyCreated.AddListener(ChangeServerNameAndId);
         NetworkLobbyManager.GetInstance().onLobbyJoined.AddListener(RefreshPlayerInLobby);
         NetworkLobbyManager.GetInstance().onRefreshLobby.AddListener(RefreshPlayerInLobby);
+
     }
     
     private void OnDisable()
     {
-        _refreshButton.onClick.RemoveListener(OnRefresh);
+        _refreshButton.onClick.RemoveListener(NetworkLobbyManager.GetInstance().UpdateCurrentLobby);
         HostingManager.GetInstance().onServerCreated.RemoveListener(ChangeServerJoinCodeInfo);
         NetworkLobbyManager.GetInstance().onLobbyCreated.RemoveListener(ChangeServerNameAndId);
         NetworkLobbyManager.GetInstance().onLobbyJoined.RemoveListener(RefreshPlayerInLobby);
@@ -81,18 +83,6 @@ public class UIRoomManager : Singleton<UIRoomManager>
         }
     }
 
-    void OnRefresh()
-    {
-
-        Lobby lobby = NetworkLobbyManager.GetInstance().currentLobby;
-        
-        lobby.Players.ForEach(x => Debug.Log(x.Id));
-        
-        NetworkLobbyManager.GetInstance().onRefreshLobby?.Invoke(lobby);
-        NetworkLobbyManager.GetInstance().UpdateCurrentLobby(lobby);
-
-    }
-    
     public string GetLobbyId()
     {
         Debug.Log(_lobbyId);

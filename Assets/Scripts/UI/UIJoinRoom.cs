@@ -11,9 +11,7 @@ public class UIJoinRoom : MonoBehaviour
     private TMP_InputField _joinCode;
     [SerializeField]
     private Button _connectToServerButton;
-    [SerializeField]
-    private Button _quickJoinButton;
-
+    
     [SerializeField]
     private ScrollRect _scrollRect;
 
@@ -25,7 +23,6 @@ public class UIJoinRoom : MonoBehaviour
     private void OnEnable()
     {
         _connectToServerButton.onClick.AddListener(ConnectToServer);
-        _quickJoinButton.onClick.AddListener(QuickJoin);
         HostingManager.GetInstance().onServerJoined.AddListener(FetchLobbies);
         NetworkLobbyManager.GetInstance().onLobbyJoined.AddListener(OnLobbyJoined);
     }
@@ -33,7 +30,6 @@ public class UIJoinRoom : MonoBehaviour
     private void OnDisable()
     {
         _connectToServerButton.onClick.RemoveListener(ConnectToServer);
-        _quickJoinButton.onClick.RemoveListener(QuickJoin);
         HostingManager.GetInstance().onServerJoined.RemoveListener(FetchLobbies);
         NetworkLobbyManager.GetInstance().onLobbyJoined.RemoveListener(OnLobbyJoined);
     }
