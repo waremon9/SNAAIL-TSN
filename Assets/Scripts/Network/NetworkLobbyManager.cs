@@ -9,6 +9,8 @@ using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.Events;
 using Unity.Netcode;
+using UnityEngine.SceneManagement;
+
 public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
 {
     public UnityEvent<Lobby> onLobbyCreated;
@@ -18,21 +20,29 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
     
     ConcurrentQueue<string> _createdLobbyIds = new ConcurrentQueue<string>();
 
-    public Lobby currentLobby;
+    private Lobby _currentLobby;
 
+    private void Start()
+    {
+        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+    }
+
+    private void OnDisable()
+    {
+        NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+    }
     public async void CreateLobby(string lobbyName, bool privacy)
     {
         int maxPlayers = 4;
         CreateLobbyOptions options = new CreateLobbyOptions();
         options.IsPrivate = privacy;
-        Lobby lobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
-        currentLobby = lobby;
-        onLobbyCreated?.Invoke(lobby);
-        onLobbyJoined?.Invoke(lobby);
-        
-        _createdLobbyIds.Enqueue(lobby.Id);
-        
-        StartCoroutine(HeartbeatLobbyCoroutine(lobby.Id, 5));
+        _currentLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, maxPlayers, options);
+
+        onLobbyCreated?.Invoke(_currentLobby);
+        onLobbyJoined?.Invoke(_currentLobby);
+        _createdLobbyIds.Enqueue(_currentLobby.Id);
+        UpdateCurrentLobby();     
+        StartCoroutine(HeartbeatLobbyCoroutine(_currentLobby.Id, 5));
     }
     
     IEnumerator HeartbeatLobbyCoroutine(string lobbyId, float waitTimeSeconds)
@@ -88,10 +98,12 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
         try
         {
             var lobby = await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode);
-            UpdateCurrentLobby(lobby);
-            CanvasManager.GetInstance().SwitchCanvas(CanvasType.Room);
-            currentLobby = lobby;
+            _currentLobby = lobby;
+            UpdateCurrentLobby();
             onLobbyJoined?.Invoke(lobby);
+            NetworkManager.Singleton.SceneManager.LoadScene("BuildingLife", LoadSceneMode.Additive);
+            
+            CanvasManager.GetInstance().gameObject.SetActive(false);
         }
         catch (LobbyServiceException e)
         {
@@ -105,10 +117,12 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
         try
         {
             var lobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobbyId);
-            UpdateCurrentLobby(lobby);
-            CanvasManager.GetInstance().SwitchCanvas(CanvasType.Room);
-            currentLobby = lobby;
-            onLobbyJoined?.Invoke(lobby);
+            _currentLobby = lobby;
+            UpdateCurrentLobby();
+            onLobbyJoined?.Invoke(lobby); 
+            NetworkManager.Singleton.SceneManager.LoadScene("BuildingLife", LoadSceneMode.Additive);
+            
+            CanvasManager.GetInstance().gameObject.SetActive(false);
         }
         catch (LobbyServiceException e)
         {
@@ -133,6 +147,11 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
 
             var lobby = await LobbyService.Instance.QuickJoinLobbyAsync(options);
             onLobbyJoined?.Invoke(lobby);
+            
+            NetworkManager.Singleton.SceneManager.LoadScene("BuildingLife", LoadSceneMode.Additive);
+            
+            CanvasManager.GetInstance().gameObject.SetActive(false);
+            
             // ...
         }
         catch (LobbyServiceException e)
@@ -149,28 +168,27 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
 
     }
 
-    public async void UpdateCurrentLobby(Lobby lobby)
+    [ServerRpc]
+    public void UpdateCurrentLobby()
     {
-        if (lobby.HostId != AuthenticationService.Instance.PlayerId)
-            return;
-        lobby.Players.ForEach(x => LobbyService.Instance.UpdatePlayerAsync(
-            lobbyId: lobby.Id,
+        _currentLobby.Players.ForEach(x => LobbyService.Instance.UpdatePlayerAsync(
+            lobbyId: _currentLobby.Id,
             playerId: x.Id,
             options: new UpdatePlayerOptions()
             {
                
             }));
     }
-    
-    public async void LeaveLobby(string lobbyId)
+
+    public async void LeaveLobby()
     {
         try
         {
             //Ensure you sign-in before calling Authentication Instance
             //See IAuthenticationService interface
             string playerId = AuthenticationService.Instance.PlayerId;
-            await LobbyService.Instance.RemovePlayerAsync(lobbyId, playerId);
-            onLobbyLeft?.Invoke(lobbyId);
+            await LobbyService.Instance.RemovePlayerAsync(_currentLobby.Id, playerId);
+            onLobbyLeft?.Invoke(_currentLobby.Id);
         }
         catch (LobbyServiceException e)
         {
@@ -178,6 +196,11 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
         }
     }
 
+    void OnClientConnected(ulong obj)
+    {
+        Debug.Log($"blablablablabla{obj}");
+    }
+    
     void OnApplicationQuit()
     {
         while (_createdLobbyIds.TryDequeue(out var lobbyId))
