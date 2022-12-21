@@ -5,11 +5,17 @@ using UnityEngine;
 public class Building_Pattern : MonoBehaviour
 {
     private int life = 5;
+    public List<GameObject> gift = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(life);
+        GameObject child = transform.GetChild(0).gameObject;
+
+        foreach(Transform cadeaux in child.transform)
+        {
+            gift.Add(cadeaux.gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -25,6 +31,7 @@ public class Building_Pattern : MonoBehaviour
             life -= 1;
             Debug.Log(life);
             Destroy(collision.gameObject);
+            Destroy(gift[Random.Range(0, gift.Count)]);
         }
     }
 }
