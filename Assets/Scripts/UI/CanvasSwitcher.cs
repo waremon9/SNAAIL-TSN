@@ -1,15 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum ButtonType
 {
-    StartGame,
+    ChangeScene,
     UINavigation,
-    CreateRoom,
-    JoinRoom,
     LeaveGame
 }
 
@@ -17,20 +17,30 @@ public enum ButtonType
 public class CanvasSwitcher : MonoBehaviour
 {
     public ButtonType buttonType;
-    
     public CanvasType desiredCanvasType;
-
+    public string desiredSceneName;
+    
     private CanvasManager _canvasManager;
     private Button _menuButton;
-    
-    // Start is called before the first frame update
-    void Start()
+
+
+    private void OnEnable()
     {
-        _menuButton = GetComponent<Button>();
         _menuButton.onClick.AddListener(OnButtonClicked);
-        _canvasManager = CanvasManager.GetInstance();
+    }
+    private void OnDisable()
+    {
+        _menuButton.onClick.RemoveListener(OnButtonClicked);
     }
 
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        _menuButton = GetComponent<Button>();
+        _canvasManager = CanvasManager.GetInstance();
+    }
+    
     void OnButtonClicked()
     {
         switch (buttonType)
@@ -38,15 +48,9 @@ public class CanvasSwitcher : MonoBehaviour
             case ButtonType.UINavigation:
                 _canvasManager.SwitchCanvas(desiredCanvasType);
                 break;
-            case ButtonType.StartGame:
-                //Call Scene manager to load the game scene
-                Debug.Log("LunchGame");
-                break;
-            case ButtonType.CreateRoom:
-                //Call network manager logic to create a room
-                break;
-            case ButtonType.JoinRoom:
-                //Call network manager logic to join a room
+            case ButtonType.ChangeScene:
+                SceneManager.LoadScene(SceneManager.GetSceneByName(desiredSceneName).buildIndex);
+                Debug.Log("Change Scene to " + desiredSceneName);
                 break;
             case ButtonType.LeaveGame:
                 Debug.Log("Leaving Game");
