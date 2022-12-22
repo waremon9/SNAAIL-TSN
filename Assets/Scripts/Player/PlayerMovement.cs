@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
         _rigidBody = GetComponent<Rigidbody>();
         _camera = GetComponentInChildren<Camera>();
         _playerControls = new PlayerControls();
