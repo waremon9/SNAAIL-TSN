@@ -10,9 +10,7 @@ public class Building_Pattern : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject child = transform.GetChild(0).gameObject;
-
-        foreach(Transform cadeaux in child.transform)
+        foreach(Transform cadeaux in transform)
         {
             gift.Add(cadeaux.gameObject);
         }
