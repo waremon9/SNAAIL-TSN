@@ -36,13 +36,13 @@ public class Health : MonoBehaviour
 
     private void Hit()
     {
-        _player.SetMovement(Movement.Blocked);
+        //_player.SetMovement(Movement.Blocked);
         _player.PlayerAnimator.SetTrigger("Hit");
     }
 
     private void Die()
     {
-        _player.SetMovement(Movement.Blocked);
+        //_player.SetMovement(Movement.Blocked);
         _player.PlayerAnimator.SetTrigger("Died");
     }
     private void Revive()

@@ -160,14 +160,6 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
         }
     }
 
-    public async Task<List<Player>> GetPlayersInLobby(string lobbyId)
-    {
-        var lobby = await LobbyService.Instance.GetLobbyAsync(lobbyId);
-
-        return lobby.Players;
-
-    }
-
     [ServerRpc]
     public void UpdateCurrentLobby()
     {
