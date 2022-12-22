@@ -29941,7 +29941,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.033333335
-    functionName: SetMovement
+    functionName: SetPlayerMovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

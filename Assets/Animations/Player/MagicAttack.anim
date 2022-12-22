@@ -107980,14 +107980,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 1.0333333
-    functionName: ToggleSpellVisibility
+    functionName: ToggleSpell
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 3.3333333
-    functionName: SetMovement
+    functionName: SetPlayerMovement
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 2d91ef391f299ec40a6465ae043d1026, type: 3}
     floatParameter: 0

@@ -91042,14 +91042,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SetMovement
+    functionName: SetPlayerMovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
   - time: 3.9
-    functionName: Deactivate
+    functionName: DestroyEntity
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

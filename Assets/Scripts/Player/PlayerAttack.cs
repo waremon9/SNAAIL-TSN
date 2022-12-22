@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using Enums;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class PlayerAttack : MonoBehaviour
     {
         get { return _spell; }
     }
-    private GameObject _spellObj = null;
+
+    private GameObject _spellObj;
     
     private PlayerControls _playerControls;
     private void Awake()
@@ -34,15 +36,21 @@ public class PlayerAttack : MonoBehaviour
         _playerControls.Enable();
 
         _playerControls.Player.Fire.performed += Attack;
-        
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name != "GamePlayScene") return;
         switch (_attackType)
         {
             case AttackType.MeleeSword:
-                //_weaponCollider = _swordObj.GetComponent<MeshCollider>();
+                _weaponCollider = _swordObj.GetComponent<MeshCollider>();
                 _swordObj.SetActive(true);
                 break;
             case AttackType.MeleeHammer:
-                //_weaponCollider = _hammerObj.GetComponent<MeshCollider>();
+                _weaponCollider = _hammerObj.GetComponent<MeshCollider>();
                 _hammerObj.SetActive(true);
                 break;
             case AttackType.Spell:
@@ -65,7 +73,7 @@ public class PlayerAttack : MonoBehaviour
             if (_player.PlayerAnimator.GetBool("Casting"))
             {
                 _player.PlayerAnimator.SetBool("Casting", false);
-                _player.CanMove = true;
+                _player.SetMovement(Movement.Free);
                 _spellObj.SetActive(false);
             }
             else
@@ -75,7 +83,6 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            //_weaponCollider.enabled = true;
             _player.PlayerAnimator.SetTrigger("MeleeAttack");
         }
     }
@@ -86,17 +93,17 @@ public class PlayerAttack : MonoBehaviour
         if (!_spell)
             return;
 
-        if (!_spell.spellPrefab)
+        if (!_spell.SpellPrefab)
             return;
         
-        if (_spell.spellOrigin == SpellOrigin.World)
+        if (_spell.SpellOrigin == SpellOrigin.World)
         {
-            _spellObj = Instantiate(_spell.spellPrefab, Vector3.zero, Quaternion.identity); 
+            _spellObj = Instantiate(_spell.SpellPrefab, Vector3.zero, Quaternion.identity); 
 			_spellObj.GetComponentInChildren<Weapon>().Owner = this;
         }
         else
         {
-            _spellObj _spellObj.GetComponentInChildren<Weapon>().Owner = this;= Instantiate(_spell.spellPrefab, transform);
+            _spellObj = Instantiate(_spell.SpellPrefab, _player._playerMesh.transform);
         }
         _spellObj.SetActive(false);
     }
@@ -135,7 +142,7 @@ public class PlayerAttack : MonoBehaviour
         _player.PlayerAnimator.SetBool("Casting", true);
     }
 
-    private void ToggleSpellVisibility()
+    public void ToggleSpellVisibility()
     {
         if (_spellObj.activeSelf)
         {
@@ -150,7 +157,7 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void ToggleWeaponCollider()
+    public void ToggleWeaponCollider()
     {
         _weaponCollider.enabled = !_weaponCollider.enabled;
     }

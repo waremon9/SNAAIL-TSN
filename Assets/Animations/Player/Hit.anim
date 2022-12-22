@@ -28510,14 +28510,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: SetMovement
+    functionName: SetPlayerMovement
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 3
     messageOptions: 0
   - time: 1.2
-    functionName: SetMovement
+    functionName: SetPlayerMovement
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 2d91ef391f299ec40a6465ae043d1026, type: 3}
     floatParameter: 0

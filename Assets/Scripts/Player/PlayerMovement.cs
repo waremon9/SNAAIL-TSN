@@ -1,6 +1,6 @@
 using UnityEngine;
-using Unity.Netcode;
 using UnityEngine.InputSystem;
+using Enums;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private float _moveSpeed = 2f;
     
-    [SerializeField] private GameObject _playerMesh;
+    [SerializeField] public GameObject _playerMesh;
     
     [SerializeField] private LayerMask _ground;
     
@@ -23,11 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerControls _playerControls;
 
-    private bool _canMove;
-    
-    public bool CanMove { get => _canMove; set => _canMove = value ; }
-
-    
+    private Movement _playerMovement = Movement.Free;   
     
     
     // Start is called before the first frame update
@@ -41,8 +37,6 @@ public class PlayerMovement : MonoBehaviour
 
         _playerControls.Player.Move.performed += OnRun;
         _playerControls.Player.Move.canceled += OnStopRun;
-        
-        CanMove = true;
     }
 
     private void OnDisable()
@@ -58,8 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        if (!CanMove)
-            return;
+        if (_playerMovement == Movement.Blocked || _playerMovement == Movement.RotateOnly) return;
         
         Vector2 moveInput = _playerControls.Player.Move.ReadValue<Vector2>();
         Vector3 moveAmount = new Vector3(moveInput.x, 0f, moveInput.y) * (_moveSpeed * Time.fixedDeltaTime);
@@ -69,8 +62,9 @@ public class PlayerMovement : MonoBehaviour
     
     void Rotate()
     {
-        if (!CanMove)
+        if (_playerMovement == Movement.Blocked || _playerMovement == Movement.MoveOnly)
             return;
+
         Vector3 mousePosition = GetMousePosition();
 
         Ray ray = _camera.ScreenPointToRay(mousePosition);
@@ -91,13 +85,19 @@ public class PlayerMovement : MonoBehaviour
 
     void OnRun(InputAction.CallbackContext context)
     {
-        if(CanMove)
+        if (_playerMovement == Movement.Free || _playerMovement == Movement.MoveOnly)
             _animator.SetBool("Running", true);
     }
 
     void OnStopRun(InputAction.CallbackContext context)
     {
         _animator.SetBool("Running", false);
+    }
+
+    public void SetMovement(Movement movement)
+    {
+        Debug.Log("SetPlayerMovement " + movement.ToString());
+        _playerMovement = movement;
     }
 
 }
