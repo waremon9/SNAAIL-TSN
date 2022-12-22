@@ -1,106 +1,103 @@
-using System.Collections;
 using UnityEngine;
-using Enums;
+using Unity.Netcode;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField]
-    private float _moveSpeed = 2;
-    [SerializeField]
-    private float _rotationSpeed = 2;
-
-    private Plane _raycastPlane;
-
-    private Animator _animator;
     public Animator PlayerAnimator
     {
         get { return _animator; }
     }
+    
+    [SerializeField] private float _moveSpeed = 2f;
+    
+    [SerializeField] private GameObject _playerMesh;
+    
+    [SerializeField] private LayerMask _ground;
+    
+    private Rigidbody _rigidBody;
 
-    private Movement _movement = Movement.Free;
+    private Animator _animator;
 
-    private bool isMoving = false;
+    private Camera _camera;
 
+    private PlayerControls _playerControls;
+
+    private bool _canMove;
+    
+    public bool CanMove { get => _canMove; set => _canMove = value ; }
+
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-        _animator = GetComponent<Animator>();
-        _raycastPlane = new Plane(Vector3.up, Vector3.zero);
+        _animator = GetComponentInChildren<Animator>();
+        _rigidBody = GetComponent<Rigidbody>();
+        _camera = GetComponentInChildren<Camera>();
+        _playerControls = new PlayerControls();
+        _playerControls.Enable();
+
+        _playerControls.Player.Move.performed += OnRun;
+        _playerControls.Player.Move.canceled += OnStopRun;
+        
+        CanMove = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        isMoving = false;
-        Rotate();
-        Move();
-        Roll();
+        _playerControls.Disable();
+    }
 
-        _animator.SetBool("Running", isMoving);
+    private void Update()
+    {
+        Move();
+        Rotate();
     }
 
     private void Move()
     {
-        if (_movement == Movement.Free || _movement == Movement.MoveOnly)
-        {
-            if (Input.GetKey(KeyCode.Z))
-            {
-                isMoving = true;
-                transform.position += transform.forward * _moveSpeed * Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                isMoving = true;
-                transform.position -= transform.forward * _moveSpeed * Time.deltaTime;
-            }
-        }
-    }
+        if (!CanMove)
+            return;
+        
+        Vector2 moveInput = _playerControls.Player.Move.ReadValue<Vector2>();
+        Vector3 moveAmount = new Vector3(moveInput.x, 0f, moveInput.y) * (_moveSpeed * Time.fixedDeltaTime);
 
-    private void Rotate()
+        _rigidBody.MovePosition(transform.position + moveAmount);
+    }
+    
+    void Rotate()
     {
-        if (_movement == Movement.Free || _movement == Movement.RotateOnly)
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            float hit;
+        if (!CanMove)
+            return;
+        Vector3 mousePosition = GetMousePosition();
 
-            if (_raycastPlane.Raycast(ray, out hit))
-            {
-                if(Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(ray.GetPoint(hit).x, ray.GetPoint(hit).z)) > 0.1f)
-                {
-                    transform.LookAt(ray.GetPoint(hit));
-                }
-            }
-        }
+        Ray ray = _camera.ScreenPointToRay(mousePosition);
+
+        Physics.Raycast(ray, out RaycastHit hit, _ground);
+        
+        Vector3 facingDirection = hit.point;
+
+        facingDirection.y = _playerMesh.transform.position.y;
+
+        _playerMesh.transform.LookAt(facingDirection);
     }
 
-    private void Roll()
+    public Vector2 GetMousePosition()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            _movement = Movement.Blocked;
-            _animator.SetBool("Running", false);
-            _animator.SetTrigger("Roll");
-            //StartCoroutine(Rolling(transform.position.z));
-        }
+        return _playerControls.Player.Look.ReadValue<Vector2>();
     }
 
-    private IEnumerator Rolling(float pos)
+    void OnRun(InputAction.CallbackContext context)
     {
-        while(Mathf.Abs(pos - transform.position.z) > 1)
-        {
-            transform.position += transform.forward * Time.deltaTime * _moveSpeed;
-            yield return null;
-        }
-        _movement = Movement.Free;
+        if(CanMove)
+            _animator.SetBool("Running", true);
     }
 
-    public void SetMovement(Movement movement)
+    void OnStopRun(InputAction.CallbackContext context)
     {
-        _movement = movement;
+        _animator.SetBool("Running", false);
     }
 
-    private void Revive()
-    {
-        PlayerAnimator.SetTrigger("Revive");
-    }
 }

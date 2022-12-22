@@ -77,7 +77,7 @@ public class LobbyHelloWorld : MonoBehaviour
         await UnityServices.InitializeAsync();
 
         // Log in a player for this game client
-        Player loggedInPlayer = await GetPlayerFromAnonymousLoginAsync();
+        Unity.Services.Lobbies.Models.Player loggedInPlayer = await GetPlayerFromAnonymousLoginAsync();
 
         // Add some data to our player
         // This data will be included in a lobby under players -> player.data
@@ -339,7 +339,7 @@ public class LobbyHelloWorld : MonoBehaviour
     }
 
     // Log in a player using Unity's "Anonymous Login" API and construct a Player object for use with the Lobbies APIs
-    static async Task<Player> GetPlayerFromAnonymousLoginAsync()
+    static async Task<Unity.Services.Lobbies.Models.Player> GetPlayerFromAnonymousLoginAsync()
     {
         if (!AuthenticationService.Instance.IsSignedIn)
         {

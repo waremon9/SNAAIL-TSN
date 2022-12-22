@@ -69,7 +69,7 @@ public class QuickMatchmaking : MonoBehaviour
 
             SetTransportAsClient(allocation);
             NetworkManager.Singleton.StartClient();
-            NetworkManager.Singleton.SceneManager.LoadScene("GamePlayScene", LoadSceneMode.Additive);
+            NetworkManager.Singleton.SceneManager.LoadScene("GamePlayScene", LoadSceneMode.Single);
             CanvasManager.GetInstance().gameObject.SetActive(false);
             return lobby;
 
@@ -105,7 +105,7 @@ public class QuickMatchmaking : MonoBehaviour
             _transport.SetHostRelayData(allocation.RelayServer.IpV4, (ushort)allocation.RelayServer.Port, allocation.AllocationIdBytes, allocation.Key, allocation.ConnectionData);
             
             NetworkManager.Singleton.StartHost();
-            NetworkManager.Singleton.SceneManager.LoadScene("GamePlayScene", LoadSceneMode.Additive);
+            NetworkManager.Singleton.SceneManager.LoadScene("GamePlayScene", LoadSceneMode.Single);
             CanvasManager.GetInstance().gameObject.SetActive(false);
             
             return lobby;

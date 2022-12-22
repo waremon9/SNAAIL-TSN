@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using Enums;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -19,7 +21,8 @@ public class PlayerAttack : MonoBehaviour
         get { return _spell; }
     }
     private GameObject _spellObj = null;
-
+    
+    private PlayerControls _playerControls;
     private void Awake()
     {
         _player = GetComponent<PlayerMovement>();
@@ -27,6 +30,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
+        _playerControls = new PlayerControls();
+        _playerControls.Enable();
+
+        _playerControls.Player.Fire.performed += Attack;
+        
         switch (_attackType)
         {
             case AttackType.MeleeSword:
@@ -45,22 +53,19 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Attack();
-        }
+        _playerControls.Disable();
     }
 
-    void Attack()
+    void Attack(InputAction.CallbackContext context)
     {
         if (_attackType == AttackType.Spell)
         {
             if (_player.PlayerAnimator.GetBool("Casting"))
             {
                 _player.PlayerAnimator.SetBool("Casting", false);
-                _player.SetMovement(Movement.Free);
+                _player.CanMove = true;
                 _spellObj.SetActive(false);
             }
             else
@@ -118,7 +123,7 @@ public class PlayerAttack : MonoBehaviour
     {
 
         RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+        if(Physics.Raycast(Camera.main.ScreenPointToRay(_player.GetMousePosition()), out hit))
         {
             _spellObj.transform.position = hit.point + Vector3.up * 5;
             _player.PlayerAnimator.SetTrigger("RangeAttack");
