@@ -22,9 +22,9 @@ public class LineProjectileCollisionBehaviour : MonoBehaviour
     private ParticleSystem[] effectOnHitParticles;
     private EffectSettings effectSettingsInstance;
 
-    public Action<int> THATSALOTOFDAMAGE;
-    public Action<int> THATSNODAMAGEATALL;
     private Weapon _weapon;
+    private Character _currentPlayerTarget;
+    private Kid _currentEnemyTarget;
 
     void GetEffectSettingsComponent(Transform tr)
     {
@@ -89,9 +89,16 @@ public class LineProjectileCollisionBehaviour : MonoBehaviour
             hit = raycastHit;
             endPoint = raycastHit.point;
 
-            if (raycastHit.collider.gameObject.GetComponent<Player>() && !colliding)
+            Character player = raycastHit.collider.gameObject.GetComponent<Character>();
+            if (player && !colliding)
             {
-                CollisionWithPlayer();
+                CollisionWithPlayer(player);
+            }
+
+            Kid kid = raycastHit.collider.gameObject.GetComponent<Kid>();
+            if (kid && !colliding)
+            {
+                //CollisionWithEnemy(kid);
             }
 
             if (oldRaycastHit.collider != hit.collider)
@@ -116,7 +123,7 @@ public class LineProjectileCollisionBehaviour : MonoBehaviour
             {
                 effectOnHitParticle.Stop();
             }
-            if(colliding) EndCollisionWithPlayer();
+            if(colliding) EndCollisionWithPlayer(_currentPlayerTarget);
         }
 
         if (EffectOnHit != null) tEffectOnHit.LookAt(hit.point + hit.normal);
@@ -136,16 +143,17 @@ public class LineProjectileCollisionBehaviour : MonoBehaviour
         }
     }
 
-    private void CollisionWithPlayer()
+    private void CollisionWithPlayer(Character player)
     {
-        Debug.Log(THATSALOTOFDAMAGE?.GetInvocationList().Length);
         colliding = true;
-        THATSALOTOFDAMAGE?.Invoke(_weapon.Damage);
+        _currentPlayerTarget = player;
+        player.ContinuousDamage(_weapon.Damage);
     }
-    private void EndCollisionWithPlayer()
+    private void EndCollisionWithPlayer(Character player)
     {
         colliding = false;
-        THATSNODAMAGEATALL?.Invoke(0);
+        _currentPlayerTarget = null;
+        player.StopDamage();
     }
 
     private void CollisionEnter()

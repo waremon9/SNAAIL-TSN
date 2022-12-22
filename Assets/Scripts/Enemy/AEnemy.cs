@@ -1,3 +1,4 @@
+using Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,6 @@ using UnityEngine.Events;
 public abstract class AEnemy : MonoBehaviour
 {
     [SerializeField]
-    protected float hpMax;
-    protected float hpCurrent;
-
-
-    [SerializeField]
     protected float speedDefault;
     protected float speedCurrent;
 
@@ -20,103 +16,48 @@ public abstract class AEnemy : MonoBehaviour
     protected float damageDefault;
     protected float damageCurrent;
 
-
     [SerializeField]
     protected GameObject target;    
     
     
     protected NavMeshAgent nav;
-    protected SkinnedMeshRenderer meshRenderer;
 
-  
-
-    [SerializeField]
-    protected UnityEvent onDeath, onDamage, onCollision;
-
-    [SerializeField]
-    protected Color damageColor, baseColor;
-
-    [SerializeField]
-    protected float colorSpeed;
-
-    //[SerializeField]
-    //protected GameObject Drop;
-
-    //[SerializeField]
-    //protected GameObject spawnPointGemme;
-
-
-    [SerializeField]
-    UnityEvent playAudio;
+    private Movement _movement = Movement.Free;
 
 
     private void Awake()
     {
-        
-        hpCurrent = hpMax;
         speedCurrent = speedDefault;
         damageCurrent = damageDefault;
         nav = GetComponent<NavMeshAgent>();
-        meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         nav.speed = speedCurrent;
     }
 
-    public virtual void SetTarget()
-    {
-
-    }
     public virtual void Move()
     {
-        nav.SetDestination(target.transform.position);
-    }
-    public void Damage(float damage)
-    {
-
-        playAudio.Invoke();
-
-        hpCurrent -= damage;
-        StartCoroutine(DamageVisual());
-        if (hpCurrent <= 0)
+        if(_movement == Movement.Free)
         {
-            OnDeath();
+            nav.SetDestination(target.transform.position);
         }
     }
 
-    public virtual void OnDeath()
+    public void CallPauseAgent()
     {
-        StopCoroutine(DamageVisual());
-        onDeath.Invoke();
-        //Instantiate(Drop, spawnPointGemme.transform.position, Quaternion.identity);
-        Destroy(gameObject);
-
+        StartCoroutine(PauseAgent());
     }
 
-
-
-    public virtual void OnDamage()
+    IEnumerator PauseAgent()
     {
-        onDamage.Invoke();
+        if(_movement == Movement.Free)
+        {
+            nav.isStopped = true;
+            yield return new WaitForSeconds(1.05f);
+            nav.isStopped = false;
+        }
     }
 
-    IEnumerator DamageVisual()
+    private void SetMovement(Movement movement)
     {
-        float t = 0;
-        Color color;
-        while (t < 1)
-        {
-
-            t += Time.deltaTime * colorSpeed;
-            color = Color.Lerp(baseColor, damageColor, t);
-            meshRenderer.material.color = color;
-            yield return new WaitForSeconds(0.05f);
-        }
-        while (t > 0)
-        {
-            t -= Time.deltaTime * colorSpeed;
-            color = Color.Lerp(baseColor, damageColor, t);
-            meshRenderer.material.color = color;
-            yield return new WaitForSeconds(0.05f);
-        }
-
+        _movement = movement;
     }
 }

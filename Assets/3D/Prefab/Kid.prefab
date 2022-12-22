@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 753679290200723039}
   - component: {fileID: 6671440212318901285}
   - component: {fileID: 1008562427051722781}
-  - component: {fileID: 1008562427051722755}
+  - component: {fileID: 1028604470}
   - component: {fileID: 1008562427051722754}
+  - component: {fileID: 1008562427051722755}
+  - component: {fileID: 1028604469}
+  - component: {fileID: 1028604468}
   m_Layer: 0
   m_Name: Kid
   m_TagString: Untagged
@@ -68,52 +71,25 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!114 &1008562427051722755
-MonoBehaviour:
+  m_Mesh: {fileID: -108576913577776861, guid: 32364523153940445963518e8ccbb204, type: 3}
+--- !u!54 &1028604470
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89592599644198117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3864c38bb0539c44db02a6b48a2cc903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpMax: 50
-  speedDefault: 2
-  damageDefault: 5
-  target: {fileID: 0}
-  onDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 89592599644198117}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDamage:
-    m_PersistentCalls:
-      m_Calls: []
-  onCollision:
-    m_PersistentCalls:
-      m_Calls: []
-  damageColor: {r: 1, g: 0, b: 0, a: 1}
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  colorSpeed: 50
-  playAudio:
-    m_PersistentCalls:
-      m_Calls: []
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!195 &1008562427051722754
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -136,6 +112,66 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1008562427051722755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89592599644198117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3864c38bb0539c44db02a6b48a2cc903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedDefault: 2
+  damageDefault: 5
+  target: {fileID: 0}
+--- !u!114 &1028604469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89592599644198117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ddda8ec8a5bc44e9be0cd4cb30aa67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1028604468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89592599644198117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4563d72685183144ebd91ec2d466acbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6671440212318901285}
+  _currentHealth: 100
+  colorSpeed: 0
+  playAudio:
+    m_PersistentCalls:
+      m_Calls: []
+  onHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1008562427051722755}
+        m_TargetAssemblyTypeName: AEnemy, Assembly-CSharp
+        m_MethodName: CallPauseAgent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &214522088611526590
 GameObject:
   m_ObjectHideFlags: 0

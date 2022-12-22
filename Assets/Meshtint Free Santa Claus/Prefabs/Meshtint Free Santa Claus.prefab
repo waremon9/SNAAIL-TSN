@@ -571,10 +571,10 @@ GameObject:
   - component: {fileID: 6715242393419410295}
   - component: {fileID: 1282158855}
   - component: {fileID: 95038198796019630}
+  - component: {fileID: 1282158859}
   - component: {fileID: 1282158851}
   - component: {fileID: 1282158854}
   - component: {fileID: 1282158858}
-  - component: {fileID: 1282158859}
   m_Layer: 0
   m_Name: Meshtint Free Santa Claus
   m_TagString: Untagged
@@ -652,6 +652,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1282158859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475339451434976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ddda8ec8a5bc44e9be0cd4cb30aa67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1282158851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,19 +706,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4563d72685183144ebd91ec2d466acbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 95038198796019630}
   _currentHealth: 100
---- !u!114 &1282158859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475339451434976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79d3b127414df9f40a76f3476dcd36e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playAudio:
+    m_PersistentCalls:
+      m_Calls: []
+  damageColor: {r: 0, g: 0, b: 0, a: 0}
+  baseColor: {r: 0, g: 0, b: 0, a: 0}
+  colorSpeed: 50
 --- !u!1 &1475716869458680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,6 +1283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
+  Owner: {fileID: 0}
 --- !u!4 &5653169726710304696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1127450730860520516, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
@@ -1377,3 +1385,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
+  Owner: {fileID: 0}

@@ -1,7 +1,6 @@
 using UnityEngine;
 using Enums;
 
-[RequireComponent(typeof(Player))]
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerMovement _player = null;
@@ -83,7 +82,6 @@ public class PlayerAttack : MonoBehaviour
         {
             if (_spell.SpellPrefab)
             {
-                Debug.Log("SpawnSpell");
                 if (_spell.SpellOrigin == SpellOrigin.World)
                 {
                     _spellObj = Instantiate(_spell.SpellPrefab, Vector3.zero, Quaternion.identity);

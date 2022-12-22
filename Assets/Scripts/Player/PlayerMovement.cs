@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using Enums;
 
-[RequireComponent(typeof(Player))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
@@ -98,5 +97,10 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovement(Movement movement)
     {
         _movement = movement;
+    }
+
+    private void Revive()
+    {
+        PlayerAnimator.SetTrigger("Revive");
     }
 }

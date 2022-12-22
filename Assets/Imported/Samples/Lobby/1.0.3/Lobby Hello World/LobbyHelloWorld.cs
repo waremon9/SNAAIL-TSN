@@ -357,6 +357,6 @@ public class LobbyHelloWorld : MonoBehaviour
         Debug.Log("Player signed in as " + AuthenticationService.Instance.PlayerId);
 
         // Player objects have Get-only properties, so you need to initialize the data bag here if you want to use it
-        return new Player(AuthenticationService.Instance.PlayerId, null, new Dictionary<string, PlayerDataObject>());
+        return new Unity.Services.Lobbies.Models.Player(AuthenticationService.Instance.PlayerId, null, new Dictionary<string, PlayerDataObject>());
     }
 }
