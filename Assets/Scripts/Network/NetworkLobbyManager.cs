@@ -160,7 +160,7 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
         }
     }
 
-    public async Task<List<Player>> GetPlayersInLobby(string lobbyId)
+    public async Task<List<Unity.Services.Lobbies.Models.Player>> GetPlayersInLobby(string lobbyId)
     {
         var lobby = await LobbyService.Instance.GetLobbyAsync(lobbyId);
 
