@@ -160,6 +160,17 @@ public class NetworkLobbyManager : Singleton<NetworkLobbyManager>
         }
     }
 
+<<<<<<< HEAD
+=======
+    public async Task<List<Unity.Services.Lobbies.Models.Player>> GetPlayersInLobby(string lobbyId)
+    {
+        var lobby = await LobbyService.Instance.GetLobbyAsync(lobbyId);
+
+        return lobby.Players;
+
+    }
+
+>>>>>>> origin/master
     [ServerRpc]
     public void UpdateCurrentLobby()
     {

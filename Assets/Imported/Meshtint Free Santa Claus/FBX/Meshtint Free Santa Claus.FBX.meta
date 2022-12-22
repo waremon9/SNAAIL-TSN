@@ -1,5 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a9be3a90b30ab7b46a1957c31a0595c6
+=======
+guid: a2813a63e9d692d47bb6134b6be3ce23
+timeCreated: 1542352619
+licenseType: Store
+>>>>>>> origin/master
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
