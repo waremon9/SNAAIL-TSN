@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 using UnityEngine;
 public class PlayerNetworkTest : NetworkBehaviour {
@@ -5,6 +6,11 @@ public class PlayerNetworkTest : NetworkBehaviour {
     private Camera _camera;
     private Plane _plane = new(Vector3.up, Vector3.zero);
     private Ray _ray;
+
+    private void OnEnable()
+    {
+        NetworkManager.Singleton.OnClientConnectedCallback += AttachCameraToPlayer;
+    }
 
     private void Awake() {
         this._camera = Camera.main;
@@ -17,7 +23,7 @@ public class PlayerNetworkTest : NetworkBehaviour {
         this.Rotate();
 
         if (Input.GetMouseButtonDown(0)) {
-            this.ShootProjectileServerRpc();
+            //this.ShootProjectileServerRpc();
         }
     }
 
@@ -53,7 +59,7 @@ public class PlayerNetworkTest : NetworkBehaviour {
         this.transform.LookAt(lookAtPoint);
     }
 
-    [ServerRpc]
+    /*[ServerRpc]
     private void ShootProjectileServerRpc() {
         Vector3 position = this.transform.position + Vector3.up + this.transform.forward * .3f; //replace by a spawn origin transform
         Vector3 forward = this.transform.forward;
@@ -65,10 +71,17 @@ public class PlayerNetworkTest : NetworkBehaviour {
         ProjectileNetwork projectile = Instantiate(ResourceManager.Instance.projectile);
         projectile.transform.position = position;
         projectile.transform.forward = forward;
-    }
+    }*/
 
     private Vector3 GetPointOnGround() {
         this._ray = this._camera.ScreenPointToRay(Input.mousePosition);
         return this._plane.Raycast(this._ray, out float enter) ? this._ray.GetPoint(enter) : Vector3.zero;
     }
+
+    void AttachCameraToPlayer(ulong obj)
+    {
+        _camera.transform.position = new Vector3(0, 20f, 0);
+        _camera.transform.LookAt(Vector3.down);
+    }
+    
 }

@@ -4,13 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Gift
+  - Weapon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - RaycastPlane
   - Water
   - UI
   - 
