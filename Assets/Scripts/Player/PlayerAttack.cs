@@ -38,11 +38,11 @@ public class PlayerAttack : MonoBehaviour
         switch (_attackType)
         {
             case AttackType.MeleeSword:
-                _weaponCollider = _swordObj.GetComponent<MeshCollider>();
+                //_weaponCollider = _swordObj.GetComponent<MeshCollider>();
                 _swordObj.SetActive(true);
                 break;
             case AttackType.MeleeHammer:
-                _weaponCollider = _hammerObj.GetComponent<MeshCollider>();
+                //_weaponCollider = _hammerObj.GetComponent<MeshCollider>();
                 _hammerObj.SetActive(true);
                 break;
             case AttackType.Spell:
@@ -75,7 +75,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            _weaponCollider.enabled = true;
+            //_weaponCollider.enabled = true;
             _player.PlayerAnimator.SetTrigger("MeleeAttack");
         }
     }
@@ -83,23 +83,22 @@ public class PlayerAttack : MonoBehaviour
 
     private void SetupSpell()
     {
-        if (_spell)
-        {
-            if (_spell.SpellPrefab)
-            {
-                if (_spell.SpellOrigin == SpellOrigin.World)
-                {
-                    _spellObj = Instantiate(_spell.SpellPrefab, Vector3.zero, Quaternion.identity);
-                    _spellObj.GetComponentInChildren<Weapon>().Owner = this;
-                }
-                else
-                {
-                    _spellObj = Instantiate(_spell.SpellPrefab, transform);
-                }
+        if (!_spell)
+            return;
 
-                _spellObj.SetActive(false);
-            }
+        if (!_spell.spellPrefab)
+            return;
+        
+        if (_spell.spellOrigin == SpellOrigin.World)
+        {
+            _spellObj = Instantiate(_spell.spellPrefab, Vector3.zero, Quaternion.identity); 
+			_spellObj.GetComponentInChildren<Weapon>().Owner = this;
         }
+        else
+        {
+            _spellObj _spellObj.GetComponentInChildren<Weapon>().Owner = this;= Instantiate(_spell.spellPrefab, transform);
+        }
+        _spellObj.SetActive(false);
     }
 
     public void CastSpell()
