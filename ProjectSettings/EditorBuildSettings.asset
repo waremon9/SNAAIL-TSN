@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/NetCode.unity
-    guid: bf1afe572fdec7146a3f36fa9eccf8d8
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c5efa7beb67db234d860a2ff030b2ff1
   - enabled: 1

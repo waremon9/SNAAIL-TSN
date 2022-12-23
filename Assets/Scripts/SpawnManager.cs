@@ -59,10 +59,6 @@ public class SpawnManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log(IsServer);
-        Debug.Log(IsHost);
-
         if (IsServer == false)
         {
             return;

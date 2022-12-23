@@ -100,7 +100,6 @@ public class PlayerMovement : NetworkBehaviour
 
     public void SetMovement(Movement movement)
     {
-        Debug.Log("SetPlayerMovement " + movement.ToString());
         _playerMovement = movement;
     }
 

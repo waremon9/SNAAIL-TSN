@@ -23478,7 +23478,7 @@ MonoBehaviour:
   DestroyTimeDelay: 10
   LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
 --- !u!1 &100020
 GameObject:
   m_ObjectHideFlags: 0
@@ -23593,6 +23593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
+  Owner: {fileID: 0}
 --- !u!1 &100024
 GameObject:
   m_ObjectHideFlags: 0

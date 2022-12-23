@@ -5,7 +5,8 @@ using UnityEngine;
 public class Building_Pattern : MonoBehaviour
 {
     private int life = 5;
-    public List<GameObject> gift = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> gift = new List<GameObject>();
 
     private void OnCollisionEnter(Collision collision)
     {

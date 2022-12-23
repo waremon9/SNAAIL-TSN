@@ -95,12 +95,6 @@ public class LineProjectileCollisionBehaviour : MonoBehaviour
                 CollisionWithPlayer(player);
             }
 
-            Kid kid = raycastHit.collider.gameObject.GetComponent<Kid>();
-            if (kid && !colliding)
-            {
-                //CollisionWithEnemy(kid);
-            }
-
             if (oldRaycastHit.collider != hit.collider)
             {
                 CollisionLeave();
