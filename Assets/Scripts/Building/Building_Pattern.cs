@@ -6,15 +6,19 @@ public class Building_Pattern : MonoBehaviour
 {
     private int life = 5;
     [SerializeField]
-    private List<GameObject> gift = new List<GameObject>();
+    private List<GameObject> gifts = new List<GameObject>();
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Enemy")
         {
+            Debug.Log("test");
             life -= 1;
-            Destroy(collision.gameObject);
-            Destroy(gift[Random.Range(0, gift.Count)]);
+            Destroy(other.gameObject);
+
+            Destroy(gifts[Random.Range(0, gifts.Count)]);
         }
     }
+
 }

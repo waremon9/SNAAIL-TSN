@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6671440212318901285}
-  _currentHealth: 100
+  _maxHealth: 10
   colorSpeed: 50
   playAudio:
     m_PersistentCalls:
@@ -167,6 +167,21 @@ MonoBehaviour:
       - m_Target: {fileID: 1008562427051722755}
         m_TargetAssemblyTypeName: AEnemy, Assembly-CSharp
         m_MethodName: CallPauseAgent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1008562427051722755}
+        m_TargetAssemblyTypeName: AEnemy, Assembly-CSharp
+        m_MethodName: CallStopAgent
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

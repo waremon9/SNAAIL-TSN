@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b02743669182dc4580eeb80b16aaec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackType: 2
+  _attackType: 0
   _hammerObj: {fileID: 3829423767481977153}
   _swordObj: {fileID: 7961546933109163807}
   _spell: {fileID: 11400000, guid: 46a97b6d92dd28943b285e54126e31fb, type: 2}

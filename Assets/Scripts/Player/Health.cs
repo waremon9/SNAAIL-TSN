@@ -8,9 +8,9 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     private Animator _animator;
-
-    private int _maxHealth = 100;
     [SerializeField]
+    private int _maxHealth ;
+    
     private int _currentHealth;
 
     private bool _isDead = false;
@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
     protected float colorSpeed;
 
     [SerializeField]
-    UnityEvent playAudio, onHit;
+    UnityEvent playAudio, onHit, onDeath;
 
     private void Start()
     {
@@ -81,6 +81,8 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        
+        onDeath.Invoke();
         _isDead = true;
         _animator.SetTrigger("Died");
     }

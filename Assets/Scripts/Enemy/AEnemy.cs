@@ -47,10 +47,15 @@ public abstract class AEnemy : NetworkBehaviour
     {
         StartCoroutine(PauseAgent());
     }
+    public void CallStopAgent()
+    {
+        StopAllCoroutines();
+        nav.isStopped = true;
+    }
 
     IEnumerator PauseAgent()
     {
-        if (IsOwner == false) yield break;
+        //if (IsOwner == false) yield break;
         if (_movement == Movement.Free)
         {
             nav.isStopped = true;
