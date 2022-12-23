@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Enums;
+using Unity.Netcode;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public Animator PlayerAnimator
     {
@@ -29,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(IsOwner==false){return;}
+        
         _animator = GetComponentInChildren<Animator>();
         _rigidBody = GetComponent<Rigidbody>();
         _camera = GetComponentInChildren<Camera>();
@@ -46,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(IsOwner==false){return;}
         Move();
         Rotate();
     }
