@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class SpawnManager : NetworkBehaviour
 {
-    
-    
 
+
+    public GameObject target;
 
 
     private int _currentEnemy;
@@ -77,9 +77,10 @@ public class SpawnManager : NetworkBehaviour
                     _spawnTimer = rounds[_i].spawnCD;
                     if (_currentEnemy < rounds[_i].maxEnemy)
                     {
-                    Debug.Log("coucou2");
-                        SpawnServerRpc();
+                        Debug.Log("coucou2");
                         _currentEnemy++;
+                        SpawnClientRpc();                       
+                    
                     }
 
                 }
@@ -107,14 +108,15 @@ public class SpawnManager : NetworkBehaviour
             }
         
     }
-    [ServerRpc]
-    private void SpawnServerRpc()
+    [ClientRpc]
+    private void SpawnClientRpc()
     {
 
         GameObject nextEnemy = rounds[_i].enemies[Random.Range(0, rounds[_i].enemies.Count)];
 
         Instantiate(nextEnemy, rounds[_i].spawner[Random.Range(0, rounds[_i].spawner.Count)].transform.position, Quaternion.identity);
-        nextEnemy.GetComponent<NetworkObject>().Spawn();
+        nextEnemy.GetComponent<AEnemy>().target = target;
+        nextEnemy.GetComponent<NetworkObject>().Spawn(true);
 
 
 

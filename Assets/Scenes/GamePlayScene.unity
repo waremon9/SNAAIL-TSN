@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 827af25e6d8fc9f4d9bf145593c5b1c6, type: 2}
 --- !u!1001 &17288957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -195,6 +199,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -302,6 +310,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadder
       objectReference: {fileID: 0}
+    - target: {fileID: 7993008965828632864, guid: d0470092e794c614385c5b06ccbddb09, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0470092e794c614385c5b06ccbddb09, type: 3}
 --- !u!4 &37585161 stripped
@@ -316,6 +328,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392311388}
     m_Modifications:
+    - target: {fileID: 100000, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_Name
       value: Present-01 (5)
@@ -323,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_TagString
       value: Gift
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_RootOrder
@@ -398,6 +422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterBarrel (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1321102975, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1321102978, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -449,6 +477,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1321102978, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
   m_PrefabInstance: {fileID: 97799793}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &112950505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 112950506}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &112950506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112950505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.49, y: 0, z: 25.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1163270399}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &192119162
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +586,107 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &371165619
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3255875296822938100, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2782570881
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 966266773}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].spawnCD
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].maxEnemy
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].spawner.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].spawner.Array.data[0]
+      value: 
+      objectReference: {fileID: 560508325}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].spawner.Array.data[1]
+      value: 
+      objectReference: {fileID: 1418513968}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].spawner.Array.data[2]
+      value: 
+      objectReference: {fileID: 112950505}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].spawner.Array.data[3]
+      value: 
+      objectReference: {fileID: 1496016506}
+    - target: {fileID: 3255875296822938101, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: rounds.Array.data[0].spawner.Array.data[4]
+      value: 
+      objectReference: {fileID: 1496016506}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938103, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_Name
+      value: SpawnManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255875296822938103, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d215aeb52655964499d9f3b484a19814, type: 3}
 --- !u!1 &392311387
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterBarrel
       objectReference: {fileID: 0}
+    - target: {fileID: 1321102975, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1321102978, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -651,6 +815,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -714,6 +882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -776,6 +948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd_v2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 619970360138697097, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2623934731200260291, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -827,6 +1003,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2623934731200260291, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
   m_PrefabInstance: {fileID: 505549400}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &560508325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560508326}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &560508326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560508325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -18.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1163270399}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &573811924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -837,6 +1044,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -944,6 +1155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 6672283214750985993, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
 --- !u!4 &643214814 stripped
@@ -958,9 +1173,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1523406446}
     m_Modifications:
+    - target: {fileID: 2846202957795312159, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846202957903976018, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846202958200712087, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846202958430729604, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846202958562128440, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846202958644689080, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2846202959287830353, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
       propertyPath: m_Name
       value: WinterChest_v3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846202959287830353, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2846202959287830356, guid: 77fad4c36aa1492488a6bcadc342aacb, type: 3}
       propertyPath: m_RootOrder
@@ -1039,6 +1282,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392311388}
     m_Modifications:
+    - target: {fileID: 100000, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_Name
       value: Present-01 (4)
@@ -1046,6 +1297,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_TagString
       value: Gift
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_RootOrder
@@ -1121,6 +1376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowLine (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -1182,6 +1441,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -1289,6 +1552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6672283214750985993, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
 --- !u!4 &801383453 stripped
@@ -1303,6 +1570,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392311388}
     m_Modifications:
+    - target: {fileID: 100000, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_Name
       value: Present-01
@@ -1310,6 +1585,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_TagString
       value: Gift
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_RootOrder
@@ -1372,6 +1651,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -1479,6 +1762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterCrate_SM (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9219094225323272406, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
 --- !u!4 &915976499 stripped
@@ -1541,6 +1828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterCrate_SM
       objectReference: {fileID: 0}
+    - target: {fileID: 9219094225323272406, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
 --- !u!4 &918255351 stripped
@@ -1558,6 +1849,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bac14327a1aeaa2478f942d793f52b12, type: 3}
       propertyPath: m_Name
       value: Santa-Hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bac14327a1aeaa2478f942d793f52b12, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bac14327a1aeaa2478f942d793f52b12, type: 3}
       propertyPath: m_RootOrder
@@ -1622,6 +1917,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: bac14327a1aeaa2478f942d793f52b12, type: 3}
   m_PrefabInstance: {fileID: 964941097}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &966266773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 966266774}
+  m_Layer: 0
+  m_Name: targetEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &966266774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966266773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.96, y: 1.3343658, z: 3.28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1012701818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1632,6 +1958,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -1694,6 +2024,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 10ffc052a8e4bb8439b2ce53b6daf3a4, type: 3}
       propertyPath: m_Name
       value: Candy-Cane (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 10ffc052a8e4bb8439b2ce53b6daf3a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10ffc052a8e4bb8439b2ce53b6daf3a4, type: 3}
       propertyPath: m_RootOrder
@@ -1813,6 +2147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6672283214750985993, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
 --- !u!4 &1098381836 stripped
@@ -1830,6 +2168,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -1893,6 +2235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -1944,6 +2290,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
   m_PrefabInstance: {fileID: 1130390083}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1163270399 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3255875296822938102, guid: d215aeb52655964499d9f3b484a19814, type: 3}
+  m_PrefabInstance: {fileID: 371165619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1175416105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1954,6 +2305,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -2061,6 +2416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterCrate_SM (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9219094225323272406, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
 --- !u!4 &1206718264 stripped
@@ -2123,6 +2482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6672283214750985993, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
 --- !u!4 &1256131165 stripped
@@ -2140,6 +2503,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -2203,6 +2570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -2261,6 +2632,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392311388}
     m_Modifications:
+    - target: {fileID: 100000, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_Name
       value: Present-01 (6)
@@ -2268,6 +2647,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_TagString
       value: Gift
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_RootOrder
@@ -2342,6 +2725,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -2449,6 +2836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterCrate_SM
       objectReference: {fileID: 0}
+    - target: {fileID: 9219094225323272406, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
 --- !u!4 &1347688366 stripped
@@ -2466,6 +2857,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -2525,9 +2920,181 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1523406446}
     m_Modifications:
+    - target: {fileID: 327418887660339144, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 410312841996104059, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 473169149798084637, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 787435153664694927, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 838433848438946145, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 845003631271812078, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1128676798286398530, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1155442886876273608, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409048941119846502, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1443075483155648886, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1791926632892597698, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130296604971531259, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2236212603230760321, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251285483901506386, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490380398486085000, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2576240381063659110, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775608746130284715, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292513999027764918, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439664030772712692, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896994389752679621, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117936906745233185, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224620990578072719, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581073258159497884, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608715236414883248, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669842569045114714, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770408319039006507, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899763475693548209, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4911384931487247354, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022499601257774202, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284704350005771108, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754561462864501589, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976068131387568801, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6041618036433958646, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6113857238964082480, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6244850971405845162, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6276645726639840520, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6951911275354398605, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978220274474658170, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417819783992115132, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457540103489583211, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826882478957959315, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203521441270452649, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8947477974403929273, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
       propertyPath: m_Name
       value: WinterCastle_v2_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947477974403929273, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8947477974404155545, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
       propertyPath: m_RootOrder
@@ -2573,6 +3140,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9012153035657588937, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189320422550677059, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
 --- !u!4 &1417202938 stripped
@@ -2580,6 +3155,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8947477974404155545, guid: 904d9a1bd2cbee94f983ffa7f6912017, type: 3}
   m_PrefabInstance: {fileID: 1417202937}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1418513968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1418513969}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1418513969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418513968}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.5, y: 0, z: 7.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1163270399}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1430141090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2590,6 +3196,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -2653,6 +3263,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowLine (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -2714,6 +3328,10 @@ PrefabInstance:
     - target: {fileID: 619970360138697097, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
       propertyPath: m_Name
       value: SnowEnd_v2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 619970360138697097, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2623934731200260291, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
       propertyPath: m_RootOrder
@@ -2777,6 +3395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowLine (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -2828,6 +3450,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
   m_PrefabInstance: {fileID: 1483939147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1496016506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1496016507}
+  m_Layer: 0
+  m_Name: GameObject (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1496016507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496016506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.23, y: 0, z: 1.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1163270399}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1500806815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2838,6 +3491,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -2904,7 +3561,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1523406446
 Transform:
@@ -2989,6 +3646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3050,6 +3711,10 @@ PrefabInstance:
     - target: {fileID: 7821326694573142995, guid: 77960433296b2e94db1763ac885e8c70, type: 3}
       propertyPath: m_Name
       value: Shovel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7821326694573142995, guid: 77960433296b2e94db1763ac885e8c70, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8224922915749173525, guid: 77960433296b2e94db1763ac885e8c70, type: 3}
       propertyPath: m_RootOrder
@@ -3113,6 +3778,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392311388}
     m_Modifications:
+    - target: {fileID: 100000, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_Name
       value: Present-01 (2)
@@ -3120,6 +3793,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_TagString
       value: Gift
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_RootOrder
@@ -3239,6 +3916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6672283214750985993, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f642d643245a44db47576f710d7dc3, type: 3}
 --- !u!4 &1720379904 stripped
@@ -3253,6 +3934,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392311388}
     m_Modifications:
+    - target: {fileID: 100000, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_Name
       value: Present-01 (1)
@@ -3260,6 +3949,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_TagString
       value: Gift
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_RootOrder
@@ -3335,6 +4028,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd_v2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 619970360138697097, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2623934731200260291, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -3396,6 +4093,10 @@ PrefabInstance:
     - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_Name
       value: SnowLine (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814856224715947881, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4050278802411658056, guid: 82436820a1fece5449e4c4cff4d30860, type: 3}
       propertyPath: m_RootOrder
@@ -3503,6 +4204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowPile
       objectReference: {fileID: 0}
+    - target: {fileID: 9072473727846509251, guid: fef3e9dfbc9354e4c880f33ec0873b12, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fef3e9dfbc9354e4c880f33ec0873b12, type: 3}
 --- !u!4 &1780203869 stripped
@@ -3565,6 +4270,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterCrate_SM (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9219094225323272406, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7abef2adc7c835748b443de4ed8d7585, type: 3}
 --- !u!4 &1788449478 stripped
@@ -3582,6 +4291,10 @@ PrefabInstance:
     - target: {fileID: 1321102975, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
       propertyPath: m_Name
       value: WinterBarrel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321102975, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1321102978, guid: 6bfdbfdfc7f8f5a4cb98436db660e656, type: 3}
       propertyPath: m_RootOrder
@@ -3645,6 +4358,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd_v2
       objectReference: {fileID: 0}
+    - target: {fileID: 619970360138697097, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2623934731200260291, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -3706,6 +4423,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -3769,6 +4490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -3827,6 +4552,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392311388}
     m_Modifications:
+    - target: {fileID: 100000, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_Name
       value: Present-01 (3)
@@ -3834,6 +4567,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_TagString
       value: Gift
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: cd3a6a05b35c3aa4ba89adbcd9f7cc32, type: 3}
       propertyPath: m_RootOrder
@@ -3909,6 +4646,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnowEnd_v2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 619970360138697097, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2623934731200260291, guid: 4ac3ee5d7ae8f0a4d9f5ea0fef730316, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -3970,6 +4711,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 10ffc052a8e4bb8439b2ce53b6daf3a4, type: 3}
       propertyPath: m_Name
       value: Candy-Cane
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 10ffc052a8e4bb8439b2ce53b6daf3a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 10ffc052a8e4bb8439b2ce53b6daf3a4, type: 3}
       propertyPath: m_RootOrder
@@ -4033,6 +4778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4094,6 +4843,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
@@ -4251,6 +5004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -4309,9 +5066,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1523406446}
     m_Modifications:
+    - target: {fileID: 50886005796528682, guid: 2876e03279b43b748835fd4bfeb7b602, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4713955815358397886, guid: 2876e03279b43b748835fd4bfeb7b602, type: 3}
       propertyPath: m_Name
       value: WinterBrazier_v2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4713955815358397886, guid: 2876e03279b43b748835fd4bfeb7b602, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933573641529080726, guid: 2876e03279b43b748835fd4bfeb7b602, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635745153675403348, guid: 2876e03279b43b748835fd4bfeb7b602, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8857502388574379257, guid: 2876e03279b43b748835fd4bfeb7b602, type: 3}
       propertyPath: m_RootOrder
@@ -4375,6 +5148,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterLadderExtra (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4436,6 +5213,10 @@ PrefabInstance:
     - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_Name
       value: WinterLadderExtra (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 575671719884549288, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7019902378061295004, guid: ecc7a7b66c2705d4bb88d7a153a2b238, type: 3}
       propertyPath: m_RootOrder

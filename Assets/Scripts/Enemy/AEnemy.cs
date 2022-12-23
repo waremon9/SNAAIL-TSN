@@ -18,7 +18,7 @@ public abstract class AEnemy : NetworkBehaviour
     protected float damageCurrent;
 
     [SerializeField]
-    protected GameObject target;    
+    public GameObject target;    
     
     
     protected NavMeshAgent nav;
