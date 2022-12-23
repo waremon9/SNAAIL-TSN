@@ -68,7 +68,6 @@ public class SpawnManager : NetworkBehaviour
             return;
         }
 
-        Debug.Log("coucou");
         if (_spawnTimer > 0)
             {
                 _spawnTimer -= Time.deltaTime;
@@ -77,7 +76,6 @@ public class SpawnManager : NetworkBehaviour
                     _spawnTimer = rounds[_i].spawnCD;
                     if (_currentEnemy < rounds[_i].maxEnemy)
                     {
-                        Debug.Log("coucou2");
                         _currentEnemy++;
                         SpawnClientRpc();                       
                     
@@ -117,13 +115,7 @@ public class SpawnManager : NetworkBehaviour
         Instantiate(nextEnemy, rounds[_i].spawner[Random.Range(0, rounds[_i].spawner.Count)].transform.position, Quaternion.identity);
         nextEnemy.GetComponent<AEnemy>().target = target;
         nextEnemy.GetComponent<NetworkObject>().Spawn(true);
-
-
-
-
-
     }
-
 }
 
 [System.Serializable]
