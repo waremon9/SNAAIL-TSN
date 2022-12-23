@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI ;
 using UnityEngine.Events;
+using Unity.Netcode;
 
-public abstract class AEnemy : MonoBehaviour
+public abstract class AEnemy : NetworkBehaviour 
 {
     [SerializeField]
     protected float speedDefault;
@@ -35,6 +36,7 @@ public abstract class AEnemy : MonoBehaviour
 
     public virtual void Move()
     {
+        if(IsOwner==false) return;
         if(_movement == Movement.Free)
         {
             nav.SetDestination(target.transform.position);
@@ -48,7 +50,8 @@ public abstract class AEnemy : MonoBehaviour
 
     IEnumerator PauseAgent()
     {
-        if(_movement == Movement.Free)
+        if (IsOwner == false) yield break;
+        if (_movement == Movement.Free)
         {
             nav.isStopped = true;
             yield return new WaitForSeconds(1.05f);

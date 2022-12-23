@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager : NetworkBehaviour
 {
     
     
@@ -26,6 +27,10 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
+        if (IsServer==false)
+        {
+            return;
+        }
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -37,7 +42,7 @@ public class SpawnManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
 
-
+        
 
     }
     // Start is called before the first frame update
@@ -55,8 +60,16 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
 
+        Debug.Log(IsServer);
+        Debug.Log(IsHost);
 
-            if (_spawnTimer > 0)
+        if (IsServer == false)
+        {
+            return;
+        }
+
+        Debug.Log("coucou");
+        if (_spawnTimer > 0)
             {
                 _spawnTimer -= Time.deltaTime;
                 if (_spawnTimer < 0)
@@ -64,7 +77,8 @@ public class SpawnManager : MonoBehaviour
                     _spawnTimer = rounds[_i].spawnCD;
                     if (_currentEnemy < rounds[_i].maxEnemy)
                     {
-                        Spawn();
+                    Debug.Log("coucou2");
+                        SpawnServerRpc();
                         _currentEnemy++;
                     }
 
@@ -93,14 +107,14 @@ public class SpawnManager : MonoBehaviour
             }
         
     }
-
-    private void Spawn()
+    [ServerRpc]
+    private void SpawnServerRpc()
     {
 
         GameObject nextEnemy = rounds[_i].enemies[Random.Range(0, rounds[_i].enemies.Count)];
 
         Instantiate(nextEnemy, rounds[_i].spawner[Random.Range(0, rounds[_i].spawner.Count)].transform.position, Quaternion.identity);
-
+        nextEnemy.GetComponent<NetworkObject>().Spawn();
 
 
 
