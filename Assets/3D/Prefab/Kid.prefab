@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -874949827196661552}
   - component: {fileID: -4967368507942468955}
   - component: {fileID: 8667595557159338894}
+  - component: {fileID: 3581102546760668490}
   m_Layer: 0
   m_Name: Kid
   m_TagString: Enemy
@@ -237,6 +238,19 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &3581102546760668490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89592599644198117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d224684e0a127c4db17995ed3760587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPlayer: 0
 --- !u!1 &214522088611526590
 GameObject:
   m_ObjectHideFlags: 0

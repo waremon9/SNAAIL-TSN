@@ -200,7 +200,7 @@ MonoBehaviour:
   _attackType: 2
   _hammerObj: {fileID: 3829423767481977153}
   _swordObj: {fileID: 7961546933109163807}
-  _spell: {fileID: 11400000, guid: 46a97b6d92dd28943b285e54126e31fb, type: 2}
+  _spell: {fileID: 11400000, guid: 12de01615d438644dbebc69b32a146dd, type: 2}
 --- !u!114 &1282158858
 MonoBehaviour:
   m_ObjectHideFlags: 0
